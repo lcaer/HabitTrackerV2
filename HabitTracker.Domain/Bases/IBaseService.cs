@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace HabitTrack.Domain.Bases
+namespace HabitTracker.Domain.Bases
 {
     public interface IBaseService<TEntity> where TEntity : IBaseEntity
     {

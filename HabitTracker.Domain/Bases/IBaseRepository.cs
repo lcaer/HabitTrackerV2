@@ -1,4 +1,4 @@
-﻿namespace HabitTrack.Domain.Bases
+﻿namespace HabitTracker.Domain.Bases
 {
     public interface IBaseRepository<TEntity>
         where TEntity : IBaseEntity

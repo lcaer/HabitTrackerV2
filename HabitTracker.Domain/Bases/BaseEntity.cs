@@ -1,4 +1,4 @@
-﻿namespace HabitTrack.Domain.Bases
+﻿namespace HabitTracker.Domain.Bases
 {
     public abstract class BaseEntity<TID> : IBaseEntity
     {

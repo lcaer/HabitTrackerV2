@@ -1,6 +1,6 @@
-﻿using HabitTrack.Domain.Bases;
+﻿using HabitTracker.Domain.Bases;
 
-namespace HabitTrack.Domain.Entities
+namespace HabitTracker.Domain.Entities
 {
     public class Habit : BaseEntity<int>
     {
