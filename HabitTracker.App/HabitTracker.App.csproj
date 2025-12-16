@@ -9,11 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Config\" />
-    <Folder Include="Infra\" />
-    <Folder Include="Models\" />
-    <Folder Include="Registers\" />
-    <Folder Include="Others\" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.11" />
+    <PackageReference Include="ReaLTaiizor" Version="3.8.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HabitTracker.Repository\HabitTracker.Repository.csproj" />
+    <ProjectReference Include="..\HabitTracker.Service\HabitTracker.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>
