@@ -62,12 +62,6 @@ namespace HabitTracker.App.Registers
             if (wasSaved == 1)
             {
                 this.Close();
-                /*var cad = ConfigureDI.ServicesProvider!.GetService<Login>();
-                if (cad != null && !cad.IsDisposed)
-                {
-                    cad.MdiParent = MainForm.ActiveForm;
-                    cad.Show();
-                }*/
             }
         }
     }

@@ -160,6 +160,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(229, 243, 229);
             ClientSize = new Size(453, 418);
             Controls.Add(chbPassword);
             Controls.Add(btnEnter);

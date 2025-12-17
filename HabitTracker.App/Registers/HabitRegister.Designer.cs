@@ -224,6 +224,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(229, 243, 229);
             ClientSize = new Size(800, 571);
             Controls.Add(label3);
             Controls.Add(datePicker);
