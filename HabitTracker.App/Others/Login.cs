@@ -1,5 +1,6 @@
 ﻿using HabitTracker.App.Bases;
 using HabitTracker.App.Infra;
+using HabitTracker.App.Models;
 using HabitTracker.App.Registers;
 using HabitTracker.Domain.Bases;
 using HabitTracker.Domain.Entities;
@@ -11,10 +12,12 @@ namespace HabitTracker.App.Others
     public partial class Login : BaseForm
     {
         private readonly IBaseService<User> _userService;
+        private readonly IBaseService<Habit> _habitService;
 
-        public Login(IBaseService<User> userService)
+        public Login(IBaseService<User> userService, IBaseService<Habit> habitService)
         {
             _userService = userService;
+            _habitService = habitService;
             InitializeComponent();
         }
 
@@ -43,17 +46,19 @@ namespace HabitTracker.App.Others
                 if (this.MdiParent is MainForm main)
                 {
                     main.Update_lblUser(user.Login);
-                    //main.HabitBasePanel.Visible = true;
                 }
 
+                var habits = _habitService.Get<Habit>().Where(h => h.User.Id == user.Id).ToList();
+
                 Close();
-
-
-                var cad = ConfigureDI.ServicesProvider!.GetService<HabitRegister>();
-                if (cad != null && !cad.IsDisposed)
+                
+                if (habits.Any())
                 {
-                    cad.MdiParent = MainForm.ActiveForm;
-                    cad.Show();
+                    ExibeForm<BasePanelHabit>();
+                }
+                else
+                {
+                    ExibeForm<HabitRegister>();
                 }
             }
         }
@@ -87,7 +92,11 @@ namespace HabitTracker.App.Others
         private void lklblRegisterUser_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Close();
-            var cad = ConfigureDI.ServicesProvider!.GetService<UserRegister>();
+            ExibeForm<UserRegister>();
+        }
+        private void ExibeForm<TForm>() where TForm : Form
+        {
+            var cad = ConfigureDI.ServicesProvider!.GetService<TForm>();
             if (cad != null && !cad.IsDisposed)
             {
                 cad.MdiParent = MainForm.ActiveForm;

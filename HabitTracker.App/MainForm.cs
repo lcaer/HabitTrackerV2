@@ -16,8 +16,7 @@ namespace HabitTracker.App
 
             InitializeComponent();
             SetMdiBackColor();
-            ExibeFormulario<Login>();
-            PopulateHabitButtons();
+            ExibeForm<Login>();
         }
 
         public void Update_lblUser(string username)
@@ -36,35 +35,9 @@ namespace HabitTracker.App
                 }
             }
         }
-
-        private void PopulateHabitButtons()
+        private void ExibeForm<TForm>() where TForm : Form
         {
-            flpHabitStreak.Controls.Clear();
-            int buttonSize = 20;
-
-            for (int i = 0; i < 365; i++)
-            {
-                Button btn = new Button();
-                btn.Width = buttonSize;
-                btn.Height = buttonSize;
-                btn.Text = "";
-                btn.Enabled = false;
-                btn.BackColor = Color.FromArgb(155, 184, 153);
-                btn.ForeColor = Color.FromArgb(229, 243, 229);
-                btn.FlatStyle = FlatStyle.Flat;
-
-                flpHabitStreak.Controls.Add(btn);
-            }
-        }
-
-        private void btnConfStreak_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ExibeFormulario<TFormulario>() where TFormulario : Form
-        {
-            var cad = ConfigureDI.ServicesProvider!.GetService<TFormulario>();
+            var cad = ConfigureDI.ServicesProvider!.GetService<TForm>();
             if (cad != null && !cad.IsDisposed)
             {
                 cad.MdiParent = this;

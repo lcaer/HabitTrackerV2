@@ -10,6 +10,7 @@ using HabitTracker.App.Registers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging.Abstractions;
+using HabitTracker.App.Bases;
 
 namespace HabitTracker.App.Infra
 {
@@ -53,6 +54,7 @@ namespace HabitTracker.App.Infra
             Services.AddTransient<Login, Login>();
             Services.AddTransient<UserRegister, UserRegister>();
             Services.AddTransient<HabitRegister, HabitRegister>();
+            Services.AddTransient<BasePanelHabit, BasePanelHabit>();
             #endregion
 
             #region Mappings
