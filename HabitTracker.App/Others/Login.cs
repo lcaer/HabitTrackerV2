@@ -38,8 +38,14 @@ namespace HabitTracker.App.Others
                 user = _userService.Update<User, User, UserValidator>(user);
                 MainForm.User = user;
                 DialogResult = DialogResult.OK;
-                Close();
+                
 
+                if (this.MdiParent is MainForm main)
+                {
+                    main.Update_lblUser(user.Login);
+                }
+
+                Close();
                 var cad = ConfigureDI.ServicesProvider!.GetService<HabitRegister>();
                 if (cad != null && !cad.IsDisposed)
                 {

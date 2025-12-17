@@ -18,6 +18,11 @@ namespace HabitTracker.App
             ExibeFormulario<Login>();
         }
 
+        public void Update_lblUser(string username)
+        {
+            lblUser.Text = $"User: {username}";
+        }
+
         private void ExibeFormulario<TFormulario>() where TFormulario : Form
         {
             var cad = ConfigureDI.ServicesProvider!.GetService<TFormulario>();

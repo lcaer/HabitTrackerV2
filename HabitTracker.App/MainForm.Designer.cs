@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             lblUser = new Label();
-            panel1 = new Panel();
-            panel1.SuspendLayout();
+            panelUser = new Panel();
+            panelUser.SuspendLayout();
             SuspendLayout();
             // 
             // lblUser
-            //
+            // 
             lblUser.AutoSize = true;
             lblUser.Font = new Font("Sitka Display", 12F);
             lblUser.Location = new Point(3, 0);
@@ -43,15 +43,15 @@
             lblUser.TabIndex = 2;
             lblUser.Text = "User: ";
             // 
-            // panel1
+            // panelUser
             // 
-            panel1.BackColor = Color.FromArgb(155, 184, 153);
-            panel1.Controls.Add(lblUser);
-            panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(0, 415);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(800, 35);
-            panel1.TabIndex = 3;
+            panelUser.BackColor = Color.FromArgb(155, 184, 153);
+            panelUser.Controls.Add(lblUser);
+            panelUser.Dock = DockStyle.Bottom;
+            panelUser.Location = new Point(0, 415);
+            panelUser.Name = "panelUser";
+            panelUser.Size = new Size(800, 35);
+            panelUser.TabIndex = 3;
             // 
             // MainForm
             // 
@@ -59,21 +59,20 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(239, 252, 239);
             ClientSize = new Size(800, 450);
-            Controls.Add(panel1);
+            Controls.Add(panelUser);
             IsMdiContainer = true;
             MdiChildrenMinimizedAnchorBottom = false;
             Name = "MainForm";
             Text = "MainForm";
             WindowState = FormWindowState.Maximized;
-            Controls.SetChildIndex(panel1, 0);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            Controls.SetChildIndex(panelUser, 0);
+            panelUser.ResumeLayout(false);
+            panelUser.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Label lblUser;
-        private Panel panel1;
+        public Label lblUser;
+        public Panel panelUser;
     }
 }
