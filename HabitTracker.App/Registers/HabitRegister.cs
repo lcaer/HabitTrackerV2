@@ -13,5 +13,10 @@ namespace HabitTracker.App.Registers
         {
 
         }
+
+        private void hopeDatePicker1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
