@@ -34,7 +34,7 @@
             SuspendLayout();
             // 
             // lblUser
-            // 
+            //
             lblUser.AutoSize = true;
             lblUser.Font = new Font("Sitka Display", 12F);
             lblUser.Location = new Point(3, 0);
@@ -42,7 +42,6 @@
             lblUser.Size = new Size(62, 29);
             lblUser.TabIndex = 2;
             lblUser.Text = "User: ";
-            lblUser.Click += lblUser_Click;
             // 
             // panel1
             // 

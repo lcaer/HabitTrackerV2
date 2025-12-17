@@ -13,9 +13,9 @@ namespace HabitTracker.App
 
         public MainForm()
         {
-           
+
             InitializeComponent();
-            ExibeFormulario<Login>(); 
+            ExibeFormulario<Login>();
         }
 
         private void ExibeFormulario<TFormulario>() where TFormulario : Form
@@ -26,11 +26,6 @@ namespace HabitTracker.App
                 cad.MdiParent = this;
                 cad.Show();
             }
-        }
-
-        private void lblUser_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

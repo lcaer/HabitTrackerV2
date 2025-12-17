@@ -11,12 +11,10 @@ namespace HabitTracker.App.Others
     public partial class Login : BaseForm
     {
         private readonly IBaseService<User> _userService;
-        private readonly IBaseService<Habit> _habitService;
 
-        public Login(IBaseService<User> userService, IBaseService<Habit> habitService)
+        public Login(IBaseService<User> userService)
         {
             _userService = userService;
-            _habitService = habitService;
             InitializeComponent();
         }
 
@@ -41,6 +39,7 @@ namespace HabitTracker.App.Others
                 MainForm.User = user;
                 DialogResult = DialogResult.OK;
                 Close();
+                
                 var cad = ConfigureDI.ServicesProvider!.GetService<HabitRegister>();
                 if (cad != null && !cad.IsDisposed)
                 {

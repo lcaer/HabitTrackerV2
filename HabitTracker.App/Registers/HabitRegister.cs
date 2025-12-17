@@ -8,5 +8,10 @@ namespace HabitTracker.App.Registers
         {
             InitializeComponent();
         }
+
+        private void HabitRegister_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
