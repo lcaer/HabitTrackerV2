@@ -38,7 +38,7 @@
             lblDescription = new Label();
             txtDescription = new TextBox();
             lblTitle_RegisterUser = new Label();
-            hopeDatePicker1 = new ReaLTaiizor.Controls.HopeDatePicker();
+            datePicker = new ReaLTaiizor.Controls.HopeDatePicker();
             label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)nudGoalStrak).BeginInit();
             SuspendLayout();
@@ -138,6 +138,7 @@
             btnRegister.Text = "Cadastrar";
             btnRegister.TextColor = Color.FromArgb(208, 221, 208);
             btnRegister.WarningColor = Color.FromArgb(230, 162, 60);
+            btnRegister.Click += btnRegister_Click;
             // 
             // lblDescription
             // 
@@ -177,36 +178,35 @@
             lblTitle_RegisterUser.Text = "Cadastro Hábito";
             lblTitle_RegisterUser.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // hopeDatePicker1
+            // datePicker
             // 
-            hopeDatePicker1.BackColor = Color.FromArgb(208, 221, 208);
-            hopeDatePicker1.BorderColor = Color.FromArgb(208, 221, 208);
-            hopeDatePicker1.Date = new DateTime(2025, 12, 17, 0, 0, 0, 0);
-            hopeDatePicker1.DayNames = "MTWTFSS";
-            hopeDatePicker1.DaysTextColor = Color.FromArgb(48, 52, 55);
-            hopeDatePicker1.DayTextColorA = Color.FromArgb(101, 92, 86);
-            hopeDatePicker1.DayTextColorB = Color.FromArgb(147, 158, 147);
-            hopeDatePicker1.Font = new Font("Sitka Display", 12F);
-            hopeDatePicker1.HeaderFormat = "{0} Y - {1} M";
-            hopeDatePicker1.HeaderTextColor = Color.FromArgb(48, 49, 51);
-            hopeDatePicker1.HeadLineColor = Color.FromArgb(48, 49, 51);
-            hopeDatePicker1.HoverColor = Color.FromArgb(155, 184, 153);
-            hopeDatePicker1.Location = new Point(457, 167);
-            hopeDatePicker1.Name = "hopeDatePicker1";
-            hopeDatePicker1.NMColor = Color.FromArgb(48, 49, 51);
-            hopeDatePicker1.NMHoverColor = Color.FromArgb(155, 184, 153);
-            hopeDatePicker1.NYColor = Color.FromArgb(48, 49, 51);
-            hopeDatePicker1.NYHoverColor = Color.FromArgb(155, 184, 153);
-            hopeDatePicker1.PMColor = Color.FromArgb(48, 49, 51);
-            hopeDatePicker1.PMHoverColor = Color.FromArgb(155, 184, 153);
-            hopeDatePicker1.PYColor = Color.FromArgb(48, 49, 51);
-            hopeDatePicker1.PYHoverColor = Color.FromArgb(155, 184, 153);
-            hopeDatePicker1.SelectedBackColor = Color.FromArgb(155, 184, 153);
-            hopeDatePicker1.SelectedTextColor = Color.FromArgb(48, 52, 55);
-            hopeDatePicker1.Size = new Size(250, 270);
-            hopeDatePicker1.TabIndex = 78;
-            hopeDatePicker1.ValueTextColor = Color.FromArgb(48, 52, 55);
-            hopeDatePicker1.Click += hopeDatePicker1_Click;
+            datePicker.BackColor = Color.FromArgb(208, 221, 208);
+            datePicker.BorderColor = Color.FromArgb(208, 221, 208);
+            datePicker.Date = new DateTime(2025, 12, 17, 0, 0, 0, 0);
+            datePicker.DayNames = "DSTQQSS";
+            datePicker.DaysTextColor = Color.FromArgb(48, 52, 55);
+            datePicker.DayTextColorA = Color.FromArgb(101, 92, 86);
+            datePicker.DayTextColorB = Color.FromArgb(147, 158, 147);
+            datePicker.Font = new Font("Sitka Display", 12F);
+            datePicker.HeaderFormat = "{1} de {0}";
+            datePicker.HeaderTextColor = Color.FromArgb(48, 49, 51);
+            datePicker.HeadLineColor = Color.FromArgb(48, 49, 51);
+            datePicker.HoverColor = Color.FromArgb(155, 184, 153);
+            datePicker.Location = new Point(457, 167);
+            datePicker.Name = "datePicker";
+            datePicker.NMColor = Color.FromArgb(48, 49, 51);
+            datePicker.NMHoverColor = Color.FromArgb(155, 184, 153);
+            datePicker.NYColor = Color.FromArgb(48, 49, 51);
+            datePicker.NYHoverColor = Color.FromArgb(155, 184, 153);
+            datePicker.PMColor = Color.FromArgb(48, 49, 51);
+            datePicker.PMHoverColor = Color.FromArgb(155, 184, 153);
+            datePicker.PYColor = Color.FromArgb(48, 49, 51);
+            datePicker.PYHoverColor = Color.FromArgb(155, 184, 153);
+            datePicker.SelectedBackColor = Color.FromArgb(155, 184, 153);
+            datePicker.SelectedTextColor = Color.FromArgb(48, 52, 55);
+            datePicker.Size = new Size(250, 270);
+            datePicker.TabIndex = 78;
+            datePicker.ValueTextColor = Color.FromArgb(48, 52, 55);
             // 
             // label3
             // 
@@ -226,7 +226,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 571);
             Controls.Add(label3);
-            Controls.Add(hopeDatePicker1);
+            Controls.Add(datePicker);
             Controls.Add(lblColor);
             Controls.Add(txtColor);
             Controls.Add(nudGoalStrak);
@@ -239,7 +239,6 @@
             Controls.Add(lblTitle_RegisterUser);
             Name = "HabitRegister";
             Text = "HabitRegister";
-            Load += HabitRegister_Load;
             Controls.SetChildIndex(lblTitle_RegisterUser, 0);
             Controls.SetChildIndex(txtDescription, 0);
             Controls.SetChildIndex(lblDescription, 0);
@@ -250,7 +249,7 @@
             Controls.SetChildIndex(nudGoalStrak, 0);
             Controls.SetChildIndex(txtColor, 0);
             Controls.SetChildIndex(lblColor, 0);
-            Controls.SetChildIndex(hopeDatePicker1, 0);
+            Controls.SetChildIndex(datePicker, 0);
             Controls.SetChildIndex(label3, 0);
             ((System.ComponentModel.ISupportInitialize)nudGoalStrak).EndInit();
             ResumeLayout(false);
@@ -269,7 +268,7 @@
         private Label lblDescription;
         private TextBox txtDescription;
         private Label lblTitle_RegisterUser;
-        private ReaLTaiizor.Controls.HopeDatePicker hopeDatePicker1;
+        private ReaLTaiizor.Controls.HopeDatePicker datePicker;
         private Label label3;
     }
 }

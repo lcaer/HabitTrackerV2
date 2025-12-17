@@ -53,7 +53,6 @@ namespace HabitTracker.App.Infra
             Services.AddTransient<Login, Login>();
             Services.AddTransient<UserRegister, UserRegister>();
             Services.AddTransient<HabitRegister, HabitRegister>();
-            Services.AddTransient<ScheduleRegister, ScheduleRegister>();
             #endregion
 
             #region Mappings

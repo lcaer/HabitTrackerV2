@@ -15,11 +15,11 @@ namespace HabitTracker.Repository.Mapping
             builder.Property(prop => prop.Date)
                 .IsRequired();
 
-            builder.Property(prop => prop.NumRep)
+            /*builder.Property(prop => prop.NumRep)
                 .IsRequired();
 
-            builder.Property(prop => prop.TypeRep)
-                .IsRequired();
+           /builder.Property(prop => prop.TypeRep)
+                .IsRequired();*/
 
             builder.Property(prop => prop.Reminder)
                 .IsRequired();

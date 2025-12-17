@@ -9,10 +9,10 @@ namespace HabitTracker.Service.Validators
         {
             RuleFor(c => c.Date)
                 .NotEmpty();
-            RuleFor(c => c.NumRep)
+            /*RuleFor(c => c.NumRep)
                 .NotEmpty().GreaterThan(0);
             RuleFor(c => c.TypeRep)
-                .NotEmpty().InclusiveBetween(1, 3);
+                .NotEmpty().InclusiveBetween(1, 3);*/
             RuleFor(c => c.Reminder)
                .NotEmpty();
 
