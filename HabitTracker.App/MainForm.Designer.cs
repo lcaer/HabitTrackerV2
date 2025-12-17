@@ -30,22 +30,24 @@
         {
             lblUser = new Label();
             panelUser = new Panel();
-            panel2 = new Panel();
-            flpHabitBase = new FlowLayoutPanel();
+            HabitBasePanel = new Panel();
+            StreakPanel = new Panel();
+            btnConfStreak = new Button();
+            cbStreak = new ComboBox();
+            lblDate = new Label();
+            lblStreakDone = new Label();
+            flpHabitStreak = new FlowLayoutPanel();
             panel3 = new Panel();
+            HabitTitlePanel = new Panel();
+            lblName = new Label();
+            lblDesc = new Label();
             label1 = new Label();
             label2 = new Label();
-            panel1 = new Panel();
-            label3 = new Label();
-            label4 = new Label();
-            panel4 = new Panel();
-            label5 = new Label();
-            label6 = new Label();
             panelUser.SuspendLayout();
-            panel2.SuspendLayout();
+            HabitBasePanel.SuspendLayout();
+            StreakPanel.SuspendLayout();
             panel3.SuspendLayout();
-            panel1.SuspendLayout();
-            panel4.SuspendLayout();
+            HabitTitlePanel.SuspendLayout();
             SuspendLayout();
             // 
             // lblUser
@@ -68,32 +70,95 @@
             panelUser.Size = new Size(800, 35);
             panelUser.TabIndex = 3;
             // 
-            // panel2
+            // HabitBasePanel
             // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel2.BackColor = Color.FromArgb(229, 243, 229);
-            panel2.Controls.Add(panel4);
-            panel2.Controls.Add(flpHabitBase);
-            panel2.Controls.Add(panel3);
-            panel2.Location = new Point(3, 63);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(785, 207);
-            panel2.TabIndex = 9;
+            HabitBasePanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            HabitBasePanel.BackColor = Color.FromArgb(229, 243, 229);
+            HabitBasePanel.Controls.Add(StreakPanel);
+            HabitBasePanel.Controls.Add(flpHabitStreak);
+            HabitBasePanel.Controls.Add(panel3);
+            HabitBasePanel.Location = new Point(3, 63);
+            HabitBasePanel.Name = "HabitBasePanel";
+            HabitBasePanel.Size = new Size(785, 207);
+            HabitBasePanel.TabIndex = 9;
+            HabitBasePanel.Visible = false;
             // 
-            // flpHabitBase
+            // StreakPanel
             // 
-            flpHabitBase.BackColor = Color.FromArgb(229, 243, 229);
-            flpHabitBase.Dock = DockStyle.Fill;
-            flpHabitBase.Location = new Point(0, 36);
-            flpHabitBase.Name = "flpHabitBase";
-            flpHabitBase.Size = new Size(785, 171);
-            flpHabitBase.TabIndex = 8;
-            flpHabitBase.Paint += flpHabitBase_Paint;
+            StreakPanel.BackColor = Color.FromArgb(208, 221, 208);
+            StreakPanel.Controls.Add(btnConfStreak);
+            StreakPanel.Controls.Add(cbStreak);
+            StreakPanel.Controls.Add(lblDate);
+            StreakPanel.Controls.Add(lblStreakDone);
+            StreakPanel.Dock = DockStyle.Bottom;
+            StreakPanel.Location = new Point(0, 171);
+            StreakPanel.Name = "StreakPanel";
+            StreakPanel.Size = new Size(785, 36);
+            StreakPanel.TabIndex = 9;
+            // 
+            // btnConfStreak
+            // 
+            btnConfStreak.BackColor = Color.FromArgb(229, 243, 229);
+            btnConfStreak.Dock = DockStyle.Right;
+            btnConfStreak.FlatAppearance.BorderColor = Color.FromArgb(155, 184, 153);
+            btnConfStreak.FlatStyle = FlatStyle.Flat;
+            btnConfStreak.Font = new Font("Sitka Display", 12F);
+            btnConfStreak.Location = new Point(627, 0);
+            btnConfStreak.Name = "btnConfStreak";
+            btnConfStreak.Size = new Size(158, 36);
+            btnConfStreak.TabIndex = 48;
+            btnConfStreak.Text = "Confirmar";
+            btnConfStreak.UseVisualStyleBackColor = false;
+            btnConfStreak.Click += btnConfStreak_Click;
+            // 
+            // cbStreak
+            // 
+            cbStreak.BackColor = Color.FromArgb(229, 243, 229);
+            cbStreak.ForeColor = Color.FromArgb(101, 92, 86);
+            cbStreak.FormattingEnabled = true;
+            cbStreak.Items.AddRange(new object[] { "Sim", "Não" });
+            cbStreak.Location = new Point(347, 4);
+            cbStreak.Name = "cbStreak";
+            cbStreak.Size = new Size(120, 29);
+            cbStreak.TabIndex = 0;
+            // 
+            // lblDate
+            // 
+            lblDate.AutoSize = true;
+            lblDate.BackColor = Color.FromArgb(208, 221, 208);
+            lblDate.Font = new Font("Sitka Display", 12F);
+            lblDate.ForeColor = Color.FromArgb(101, 92, 86);
+            lblDate.Location = new Point(3, 0);
+            lblDate.Name = "lblDate";
+            lblDate.Size = new Size(49, 29);
+            lblDate.TabIndex = 46;
+            lblDate.Text = "Data";
+            // 
+            // lblStreakDone
+            // 
+            lblStreakDone.AutoSize = true;
+            lblStreakDone.BackColor = Color.FromArgb(208, 221, 208);
+            lblStreakDone.Font = new Font("Sitka Display", 12F);
+            lblStreakDone.ForeColor = Color.FromArgb(101, 92, 86);
+            lblStreakDone.Location = new Point(251, 0);
+            lblStreakDone.Name = "lblStreakDone";
+            lblStreakDone.Size = new Size(90, 29);
+            lblStreakDone.TabIndex = 47;
+            lblStreakDone.Text = "Foi Feito?";
+            // 
+            // flpHabitStreak
+            // 
+            flpHabitStreak.BackColor = Color.FromArgb(229, 243, 229);
+            flpHabitStreak.Dock = DockStyle.Fill;
+            flpHabitStreak.Location = new Point(0, 36);
+            flpHabitStreak.Name = "flpHabitStreak";
+            flpHabitStreak.Size = new Size(785, 171);
+            flpHabitStreak.TabIndex = 8;
             // 
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(208, 221, 208);
-            panel3.Controls.Add(panel1);
+            panel3.Controls.Add(HabitTitlePanel);
             panel3.Controls.Add(label1);
             panel3.Controls.Add(label2);
             panel3.Dock = DockStyle.Top;
@@ -101,6 +166,41 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(785, 36);
             panel3.TabIndex = 1;
+            // 
+            // HabitTitlePanel
+            // 
+            HabitTitlePanel.BackColor = Color.FromArgb(208, 221, 208);
+            HabitTitlePanel.Controls.Add(lblName);
+            HabitTitlePanel.Controls.Add(lblDesc);
+            HabitTitlePanel.Dock = DockStyle.Top;
+            HabitTitlePanel.Location = new Point(0, 0);
+            HabitTitlePanel.Name = "HabitTitlePanel";
+            HabitTitlePanel.Size = new Size(785, 36);
+            HabitTitlePanel.TabIndex = 48;
+            // 
+            // lblName
+            // 
+            lblName.AutoSize = true;
+            lblName.BackColor = Color.FromArgb(208, 221, 208);
+            lblName.Font = new Font("Sitka Display", 12F);
+            lblName.ForeColor = Color.FromArgb(101, 92, 86);
+            lblName.Location = new Point(3, 0);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(61, 29);
+            lblName.TabIndex = 46;
+            lblName.Text = "Nome";
+            // 
+            // lblDesc
+            // 
+            lblDesc.AutoSize = true;
+            lblDesc.BackColor = Color.FromArgb(208, 221, 208);
+            lblDesc.Font = new Font("Sitka Display", 12F);
+            lblDesc.ForeColor = Color.FromArgb(101, 92, 86);
+            lblDesc.Location = new Point(251, 0);
+            lblDesc.Name = "lblDesc";
+            lblDesc.Size = new Size(90, 29);
+            lblDesc.TabIndex = 47;
+            lblDesc.Text = "Descrição";
             // 
             // label1
             // 
@@ -126,83 +226,13 @@
             label2.TabIndex = 47;
             label2.Text = "Descrição";
             // 
-            // panel1
-            // 
-            panel1.BackColor = Color.FromArgb(208, 221, 208);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(label4);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(785, 36);
-            panel1.TabIndex = 48;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.FromArgb(208, 221, 208);
-            label3.Font = new Font("Sitka Display", 12F);
-            label3.ForeColor = Color.FromArgb(101, 92, 86);
-            label3.Location = new Point(3, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(61, 29);
-            label3.TabIndex = 46;
-            label3.Text = "Nome";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.FromArgb(208, 221, 208);
-            label4.Font = new Font("Sitka Display", 12F);
-            label4.ForeColor = Color.FromArgb(101, 92, 86);
-            label4.Location = new Point(251, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(90, 29);
-            label4.TabIndex = 47;
-            label4.Text = "Descrição";
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.FromArgb(208, 221, 208);
-            panel4.Controls.Add(label5);
-            panel4.Controls.Add(label6);
-            panel4.Dock = DockStyle.Bottom;
-            panel4.Location = new Point(0, 171);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(785, 36);
-            panel4.TabIndex = 9;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.FromArgb(208, 221, 208);
-            label5.Font = new Font("Sitka Display", 12F);
-            label5.ForeColor = Color.FromArgb(101, 92, 86);
-            label5.Location = new Point(3, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(49, 29);
-            label5.TabIndex = 46;
-            label5.Text = "Data";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.FromArgb(208, 221, 208);
-            label6.Font = new Font("Sitka Display", 12F);
-            label6.ForeColor = Color.FromArgb(101, 92, 86);
-            label6.Location = new Point(251, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(90, 29);
-            label6.TabIndex = 47;
-            label6.Text = "Foi Feito?";
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(239, 252, 239);
             ClientSize = new Size(800, 450);
-            Controls.Add(panel2);
+            Controls.Add(HabitBasePanel);
             Controls.Add(panelUser);
             IsMdiContainer = true;
             MdiChildrenMinimizedAnchorBottom = false;
@@ -210,32 +240,35 @@
             Text = "MainForm";
             WindowState = FormWindowState.Maximized;
             Controls.SetChildIndex(panelUser, 0);
-            Controls.SetChildIndex(panel2, 0);
+            Controls.SetChildIndex(HabitBasePanel, 0);
             panelUser.ResumeLayout(false);
             panelUser.PerformLayout();
-            panel2.ResumeLayout(false);
+            HabitBasePanel.ResumeLayout(false);
+            StreakPanel.ResumeLayout(false);
+            StreakPanel.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
+            HabitTitlePanel.ResumeLayout(false);
+            HabitTitlePanel.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
+
         public Label lblUser;
         public Panel panelUser;
-        private Panel panel2;
-        public FlowLayoutPanel flpHabitBase;
+        public FlowLayoutPanel flpHabitStreak;
         private Panel panel3;
         private Label label1;
         private Label label2;
-        private Panel panel4;
-        private Label label5;
-        private Label label6;
-        private Panel panel1;
-        private Label label3;
-        private Label label4;
+        private Panel StreakPanel;
+        private Label lblDate;
+        private Label lblStreakDone;
+        private Label lblName;
+        private Label lblDesc;
+        private ComboBox cbStreak;
+        private Button btnConfStreak;
+        public Panel HabitTitlePanel;
+        public Panel HabitBasePanel;
     }
 }

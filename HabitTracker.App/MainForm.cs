@@ -4,7 +4,6 @@ using HabitTracker.App.Others;
 using HabitTracker.App.Registers;
 using HabitTracker.Domain.Entities;
 using Microsoft.Extensions.DependencyInjection;
-using System.Windows.Forms;
 
 namespace HabitTracker.App
 {
@@ -40,7 +39,7 @@ namespace HabitTracker.App
 
         private void PopulateHabitButtons()
         {
-            flpHabitBase.Controls.Clear();
+            flpHabitStreak.Controls.Clear();
             int buttonSize = 20;
 
             for (int i = 0; i < 365; i++)
@@ -49,15 +48,16 @@ namespace HabitTracker.App
                 btn.Width = buttonSize;
                 btn.Height = buttonSize;
                 btn.Text = "";
+                btn.Enabled = false;
                 btn.BackColor = Color.FromArgb(155, 184, 153);
                 btn.ForeColor = Color.FromArgb(229, 243, 229);
                 btn.FlatStyle = FlatStyle.Flat;
 
-                flpHabitBase.Controls.Add(btn);
+                flpHabitStreak.Controls.Add(btn);
             }
         }
 
-        private void flpHabitBase_Paint(object sender, PaintEventArgs e)
+        private void btnConfStreak_Click(object sender, EventArgs e)
         {
 
         }

@@ -43,10 +43,12 @@ namespace HabitTracker.App.Others
                 if (this.MdiParent is MainForm main)
                 {
                     main.Update_lblUser(user.Login);
-                    main.flpHabitBase.Visible = true;
+                    //main.HabitBasePanel.Visible = true;
                 }
 
                 Close();
+
+
                 var cad = ConfigureDI.ServicesProvider!.GetService<HabitRegister>();
                 if (cad != null && !cad.IsDisposed)
                 {

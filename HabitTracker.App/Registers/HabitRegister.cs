@@ -23,6 +23,7 @@ namespace HabitTracker.App.Registers
             _scheduleService = scheduleService;
             InitializeComponent();
         }
+        
         private void FormToObject(Habit habit, Schedule schedule)
         {
             habit.User = MainForm.User;
