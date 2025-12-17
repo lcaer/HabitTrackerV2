@@ -35,6 +35,7 @@
             lblUser = new Label();
             txtUser = new TextBox();
             lblTitle_loginPanel = new Label();
+            chbPassword = new CheckBox();
             SuspendLayout();
             // 
             // btnEnter
@@ -140,11 +141,27 @@
             lblTitle_loginPanel.Text = "Login";
             lblTitle_loginPanel.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // chbPassword
+            // 
+            chbPassword.AutoSize = true;
+            chbPassword.FlatAppearance.BorderSize = 0;
+            chbPassword.Font = new Font("Sitka Display", 10F);
+            chbPassword.ForeColor = Color.FromArgb(101, 92, 86);
+            chbPassword.Location = new Point(241, 213);
+            chbPassword.Name = "chbPassword";
+            chbPassword.RightToLeft = RightToLeft.No;
+            chbPassword.Size = new Size(140, 28);
+            chbPassword.TabIndex = 41;
+            chbPassword.Text = "Mostrar Senha?";
+            chbPassword.UseVisualStyleBackColor = true;
+            chbPassword.CheckedChanged += chbPassword_CheckedChanged;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(453, 418);
+            Controls.Add(chbPassword);
             Controls.Add(btnEnter);
             Controls.Add(lklblRegisterUser);
             Controls.Add(lblPassword);
@@ -161,6 +178,7 @@
             Controls.SetChildIndex(lblPassword, 0);
             Controls.SetChildIndex(lklblRegisterUser, 0);
             Controls.SetChildIndex(btnEnter, 0);
+            Controls.SetChildIndex(chbPassword, 0);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -174,5 +192,6 @@
         private Label lblUser;
         private TextBox txtUser;
         private Label lblTitle_loginPanel;
+        private CheckBox chbPassword;
     }
 }

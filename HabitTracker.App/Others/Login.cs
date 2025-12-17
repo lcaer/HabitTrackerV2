@@ -39,7 +39,7 @@ namespace HabitTracker.App.Others
                 MainForm.User = user;
                 DialogResult = DialogResult.OK;
                 Close();
-                
+
                 var cad = ConfigureDI.ServicesProvider!.GetService<HabitRegister>();
                 if (cad != null && !cad.IsDisposed)
                 {
@@ -84,6 +84,10 @@ namespace HabitTracker.App.Others
                 cad.MdiParent = MainForm.ActiveForm;
                 cad.Show();
             }
+        }
+        private void chbPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = chbPassword.Checked ? false : true;
         }
     }
 }

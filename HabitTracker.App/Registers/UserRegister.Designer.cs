@@ -43,6 +43,8 @@
             txtLogin = new TextBox();
             lblName = new Label();
             txtName = new TextBox();
+            chbPassword = new CheckBox();
+            chbConfPassword = new CheckBox();
             SuspendLayout();
             // 
             // btnRegister
@@ -249,11 +251,43 @@
             txtName.Size = new Size(309, 26);
             txtName.TabIndex = 45;
             // 
+            // chbPassword
+            // 
+            chbPassword.AutoSize = true;
+            chbPassword.FlatAppearance.BorderSize = 0;
+            chbPassword.Font = new Font("Sitka Display", 10F);
+            chbPassword.ForeColor = Color.FromArgb(101, 92, 86);
+            chbPassword.Location = new Point(233, 299);
+            chbPassword.Name = "chbPassword";
+            chbPassword.RightToLeft = RightToLeft.No;
+            chbPassword.Size = new Size(140, 28);
+            chbPassword.TabIndex = 48;
+            chbPassword.Text = "Mostrar Senha?";
+            chbPassword.UseVisualStyleBackColor = true;
+            chbPassword.CheckedChanged += chbPassword_CheckedChanged;
+            // 
+            // chbConfPassword
+            // 
+            chbConfPassword.AutoSize = true;
+            chbConfPassword.FlatAppearance.BorderSize = 0;
+            chbConfPassword.Font = new Font("Sitka Display", 10F);
+            chbConfPassword.ForeColor = Color.FromArgb(101, 92, 86);
+            chbConfPassword.Location = new Point(602, 299);
+            chbConfPassword.Name = "chbConfPassword";
+            chbConfPassword.RightToLeft = RightToLeft.No;
+            chbConfPassword.Size = new Size(140, 28);
+            chbConfPassword.TabIndex = 49;
+            chbConfPassword.Text = "Mostrar Senha?";
+            chbConfPassword.UseVisualStyleBackColor = true;
+            chbConfPassword.CheckedChanged += chbConfPassword_CheckedChanged;
+            // 
             // UserRegister
             // 
             AutoScaleDimensions = new SizeF(8F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(chbConfPassword);
+            Controls.Add(chbPassword);
             Controls.Add(lblLogin);
             Controls.Add(txtLogin);
             Controls.Add(lblName);
@@ -286,6 +320,8 @@
             Controls.SetChildIndex(lblName, 0);
             Controls.SetChildIndex(txtLogin, 0);
             Controls.SetChildIndex(lblLogin, 0);
+            Controls.SetChildIndex(chbPassword, 0);
+            Controls.SetChildIndex(chbConfPassword, 0);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -307,5 +343,7 @@
         private TextBox txtLogin;
         private Label lblName;
         private TextBox txtName;
+        private CheckBox chbPassword;
+        private CheckBox chbConfPassword;
     }
 }

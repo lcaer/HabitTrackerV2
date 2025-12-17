@@ -76,5 +76,15 @@ namespace HabitTracker.App.Registers
                 }
             }
         }
+
+        private void chbPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = chbPassword.Checked ? false : true;
+        }
+
+        private void chbConfPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            txtConfPassword.UseSystemPasswordChar = chbConfPassword.Checked ? false : true;
+        }
     }
 }
