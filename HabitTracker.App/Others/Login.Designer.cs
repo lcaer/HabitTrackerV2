@@ -28,38 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblTitle_loginPanel = new Label();
-            txtUser = new TextBox();
             btnEnter = new ReaLTaiizor.Controls.HopeRoundButton();
-            txtPassword = new TextBox();
-            lblPassword = new Label();
             lklblRegisterUser = new LinkLabel();
+            lblPassword = new Label();
+            txtPassword = new TextBox();
             lblUser = new Label();
+            txtUser = new TextBox();
+            lblTitle_loginPanel = new Label();
             SuspendLayout();
-            // 
-            // lblTitle_loginPanel
-            // 
-            lblTitle_loginPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lblTitle_loginPanel.AutoSize = true;
-            lblTitle_loginPanel.Font = new Font("Sitka Text", 25.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTitle_loginPanel.Location = new Point(167, 82);
-            lblTitle_loginPanel.Name = "lblTitle_loginPanel";
-            lblTitle_loginPanel.Size = new Size(140, 62);
-            lblTitle_loginPanel.TabIndex = 26;
-            lblTitle_loginPanel.Text = "Login";
-            lblTitle_loginPanel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // txtUser
-            // 
-            txtUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtUser.BackColor = Color.FromArgb(208, 221, 208);
-            txtUser.BorderStyle = BorderStyle.None;
-            txtUser.ForeColor = Color.FromArgb(101, 92, 86);
-            txtUser.Location = new Point(77, 195);
-            txtUser.MinimumSize = new Size(0, 25);
-            txtUser.Name = "txtUser";
-            txtUser.Size = new Size(309, 25);
-            txtUser.TabIndex = 29;
             // 
             // btnEnter
             // 
@@ -72,41 +48,16 @@
             btnEnter.ForeColor = Color.FromArgb(208, 221, 208);
             btnEnter.HoverTextColor = Color.FromArgb(48, 49, 51);
             btnEnter.InfoColor = Color.FromArgb(208, 221, 208);
-            btnEnter.Location = new Point(277, 324);
+            btnEnter.Location = new Point(272, 295);
             btnEnter.Name = "btnEnter";
             btnEnter.PrimaryColor = Color.FromArgb(48, 52, 55);
-            btnEnter.Size = new Size(109, 43);
+            btnEnter.Size = new Size(109, 45);
             btnEnter.SuccessColor = Color.FromArgb(103, 194, 58);
-            btnEnter.TabIndex = 32;
+            btnEnter.TabIndex = 40;
             btnEnter.Text = "Entrar";
             btnEnter.TextColor = Color.FromArgb(208, 221, 208);
             btnEnter.WarningColor = Color.FromArgb(230, 162, 60);
             btnEnter.Click += btnEnter_Click;
-            // 
-            // txtPassword
-            // 
-            txtPassword.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtPassword.BackColor = Color.FromArgb(208, 221, 208);
-            txtPassword.BorderStyle = BorderStyle.None;
-            txtPassword.ForeColor = Color.FromArgb(101, 92, 86);
-            txtPassword.Location = new Point(77, 270);
-            txtPassword.MinimumSize = new Size(0, 25);
-            txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(309, 25);
-            txtPassword.TabIndex = 31;
-            txtPassword.UseSystemPasswordChar = true;
-            // 
-            // lblPassword
-            // 
-            lblPassword.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lblPassword.AutoSize = true;
-            lblPassword.Font = new Font("Sitka Display", 16.1999989F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPassword.ForeColor = Color.FromArgb(101, 92, 86);
-            lblPassword.Location = new Point(77, 230);
-            lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(82, 39);
-            lblPassword.TabIndex = 30;
-            lblPassword.Text = "Senha";
             // 
             // lklblRegisterUser
             // 
@@ -114,35 +65,86 @@
             lklblRegisterUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lklblRegisterUser.AutoSize = true;
             lklblRegisterUser.DisabledLinkColor = Color.FromArgb(101, 92, 86);
-            lklblRegisterUser.Font = new Font("Sitka Display", 13.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lklblRegisterUser.Font = new Font("Sitka Display", 12F);
             lklblRegisterUser.ForeColor = Color.FromArgb(101, 92, 86);
             lklblRegisterUser.LinkColor = Color.FromArgb(101, 92, 86);
-            lklblRegisterUser.Location = new Point(85, 388);
+            lklblRegisterUser.Location = new Point(90, 355);
             lklblRegisterUser.Name = "lklblRegisterUser";
-            lklblRegisterUser.Size = new Size(288, 33);
-            lklblRegisterUser.TabIndex = 27;
+            lklblRegisterUser.Size = new Size(256, 29);
+            lklblRegisterUser.TabIndex = 35;
             lklblRegisterUser.TabStop = true;
             lklblRegisterUser.Text = "Se não tiver login, clique aqui!";
             lklblRegisterUser.VisitedLinkColor = Color.FromArgb(101, 92, 86);
             lklblRegisterUser.LinkClicked += lklblRegisterUser_LinkClicked;
             // 
+            // lblPassword
+            // 
+            lblPassword.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblPassword.AutoSize = true;
+            lblPassword.Font = new Font("Sitka Display", 12F);
+            lblPassword.ForeColor = Color.FromArgb(101, 92, 86);
+            lblPassword.Location = new Point(72, 210);
+            lblPassword.Name = "lblPassword";
+            lblPassword.Size = new Size(62, 29);
+            lblPassword.TabIndex = 38;
+            lblPassword.Text = "Senha";
+            // 
+            // txtPassword
+            // 
+            txtPassword.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtPassword.BackColor = Color.FromArgb(208, 221, 208);
+            txtPassword.BorderStyle = BorderStyle.None;
+            txtPassword.Font = new Font("Sitka Display", 12F);
+            txtPassword.ForeColor = Color.FromArgb(101, 92, 86);
+            txtPassword.Location = new Point(72, 242);
+            txtPassword.MinimumSize = new Size(0, 25);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(309, 26);
+            txtPassword.TabIndex = 39;
+            txtPassword.UseSystemPasswordChar = true;
+            // 
             // lblUser
             // 
             lblUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblUser.AutoSize = true;
-            lblUser.Font = new Font("Sitka Display", 16.1999989F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblUser.Font = new Font("Sitka Display", 12F);
             lblUser.ForeColor = Color.FromArgb(101, 92, 86);
-            lblUser.Location = new Point(77, 155);
+            lblUser.Location = new Point(72, 135);
             lblUser.Name = "lblUser";
-            lblUser.Size = new Size(100, 39);
-            lblUser.TabIndex = 28;
+            lblUser.Size = new Size(76, 29);
+            lblUser.TabIndex = 36;
             lblUser.Text = "Usuário";
+            // 
+            // txtUser
+            // 
+            txtUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtUser.BackColor = Color.FromArgb(208, 221, 208);
+            txtUser.BorderStyle = BorderStyle.None;
+            txtUser.Font = new Font("Sitka Display", 12F);
+            txtUser.ForeColor = Color.FromArgb(101, 92, 86);
+            txtUser.Location = new Point(72, 167);
+            txtUser.MinimumSize = new Size(0, 25);
+            txtUser.Name = "txtUser";
+            txtUser.Size = new Size(309, 26);
+            txtUser.TabIndex = 37;
+            // 
+            // lblTitle_loginPanel
+            // 
+            lblTitle_loginPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblTitle_loginPanel.AutoSize = true;
+            lblTitle_loginPanel.Font = new Font("Sitka Text", 15F);
+            lblTitle_loginPanel.Location = new Point(189, 88);
+            lblTitle_loginPanel.Name = "lblTitle_loginPanel";
+            lblTitle_loginPanel.Size = new Size(81, 36);
+            lblTitle_loginPanel.TabIndex = 34;
+            lblTitle_loginPanel.Text = "Login";
+            lblTitle_loginPanel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(475, 450);
+            ClientSize = new Size(453, 418);
             Controls.Add(btnEnter);
             Controls.Add(lklblRegisterUser);
             Controls.Add(lblPassword);
@@ -165,12 +167,12 @@
 
         #endregion
 
-        private Label lblTitle_loginPanel;
-        private TextBox txtUser;
         private ReaLTaiizor.Controls.HopeRoundButton btnEnter;
-        private TextBox txtPassword;
-        private Label lblPassword;
         private LinkLabel lklblRegisterUser;
+        private Label lblPassword;
+        private TextBox txtPassword;
         private Label lblUser;
+        private TextBox txtUser;
+        private Label lblTitle_loginPanel;
     }
 }
