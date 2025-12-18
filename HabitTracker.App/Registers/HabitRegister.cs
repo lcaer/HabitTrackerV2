@@ -59,6 +59,7 @@ namespace HabitTracker.App.Registers
             if (wasSaved == 1)
             {
                 this.Close();
+                BasePanelHabit.GenerateWindows(_habitService, _scheduleService);
             }
         }
     }

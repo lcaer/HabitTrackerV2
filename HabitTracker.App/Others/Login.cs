@@ -13,11 +13,13 @@ namespace HabitTracker.App.Others
     {
         private readonly IBaseService<User> _userService;
         private readonly IBaseService<Habit> _habitService;
+        private readonly IBaseService<Schedule> _scheduleService;
 
-        public Login(IBaseService<User> userService, IBaseService<Habit> habitService)
+        public Login(IBaseService<User> userService, IBaseService<Habit> habitService, IBaseService<Schedule> scheduleService)
         {
             _userService = userService;
             _habitService = habitService;
+            _scheduleService = scheduleService;
             InitializeComponent();
         }
 
@@ -54,7 +56,7 @@ namespace HabitTracker.App.Others
                 
                 if (habits.Any())
                 {
-                    ExibeForm<BasePanelHabit>();
+                    BasePanelHabit.GenerateWindows(_habitService, _scheduleService);
                 }
                 else
                 {
