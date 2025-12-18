@@ -1,3 +1,4 @@
+using HabitTracker.App.Bases;
 using HabitTracker.App.Infra;
 
 namespace HabitTracker.App
@@ -15,6 +16,7 @@ namespace HabitTracker.App
             ConfigureDI.ConfigureServices();
             ApplicationConfiguration.Initialize();
             Application.Run(new MainForm());
+            //Application.Run(new BasePanelHabit());
         }
     }
 }

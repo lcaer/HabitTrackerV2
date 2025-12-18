@@ -28,48 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            HabitBasePanel = new Panel();
+            HabitPanel = new Panel();
             StreakPanel = new Panel();
             btnConfStreak = new Button();
-            cbStreak = new ComboBox();
             lblDate = new Label();
             lblStreakDone = new Label();
             flpHabitStreak = new FlowLayoutPanel();
-            panel3 = new Panel();
             HabitTitlePanel = new Panel();
             lblName = new Label();
             lblDesc = new Label();
-            label1 = new Label();
-            label2 = new Label();
-            HabitBasePanel.SuspendLayout();
+            cbStreak = new ReaLTaiizor.Controls.ComboBoxEdit();
+            HabitPanel.SuspendLayout();
             StreakPanel.SuspendLayout();
-            panel3.SuspendLayout();
             HabitTitlePanel.SuspendLayout();
             SuspendLayout();
             // 
-            // HabitBasePanel
+            // HabitPanel
             // 
-            HabitBasePanel.BackColor = Color.FromArgb(229, 243, 229);
-            HabitBasePanel.Controls.Add(StreakPanel);
-            HabitBasePanel.Controls.Add(flpHabitStreak);
-            HabitBasePanel.Controls.Add(panel3);
-            HabitBasePanel.Dock = DockStyle.Fill;
-            HabitBasePanel.Location = new Point(0, 0);
-            HabitBasePanel.Name = "HabitBasePanel";
-            HabitBasePanel.Size = new Size(800, 257);
-            HabitBasePanel.TabIndex = 10;
+            HabitPanel.BackColor = Color.FromArgb(229, 243, 229);
+            HabitPanel.Controls.Add(StreakPanel);
+            HabitPanel.Controls.Add(flpHabitStreak);
+            HabitPanel.Controls.Add(HabitTitlePanel);
+            HabitPanel.Dock = DockStyle.Fill;
+            HabitPanel.Location = new Point(0, 0);
+            HabitPanel.Name = "HabitPanel";
+            HabitPanel.Size = new Size(781, 410);
+            HabitPanel.TabIndex = 10;
             // 
             // StreakPanel
             // 
             StreakPanel.BackColor = Color.FromArgb(208, 221, 208);
-            StreakPanel.Controls.Add(btnConfStreak);
             StreakPanel.Controls.Add(cbStreak);
+            StreakPanel.Controls.Add(btnConfStreak);
             StreakPanel.Controls.Add(lblDate);
             StreakPanel.Controls.Add(lblStreakDone);
             StreakPanel.Dock = DockStyle.Bottom;
-            StreakPanel.Location = new Point(0, 221);
+            StreakPanel.Location = new Point(0, 374);
             StreakPanel.Name = "StreakPanel";
-            StreakPanel.Size = new Size(800, 36);
+            StreakPanel.Size = new Size(781, 36);
             StreakPanel.TabIndex = 9;
             // 
             // btnConfStreak
@@ -79,24 +75,13 @@
             btnConfStreak.FlatAppearance.BorderColor = Color.FromArgb(155, 184, 153);
             btnConfStreak.FlatStyle = FlatStyle.Flat;
             btnConfStreak.Font = new Font("Sitka Display", 12F);
-            btnConfStreak.Location = new Point(642, 0);
+            btnConfStreak.Location = new Point(623, 0);
             btnConfStreak.Name = "btnConfStreak";
             btnConfStreak.Size = new Size(158, 36);
             btnConfStreak.TabIndex = 48;
             btnConfStreak.Text = "Confirmar";
             btnConfStreak.UseVisualStyleBackColor = false;
             btnConfStreak.Click += btnConfStreak_Click;
-            // 
-            // cbStreak
-            // 
-            cbStreak.BackColor = Color.FromArgb(229, 243, 229);
-            cbStreak.ForeColor = Color.FromArgb(101, 92, 86);
-            cbStreak.FormattingEnabled = true;
-            cbStreak.Items.AddRange(new object[] { "Sim", "Não" });
-            cbStreak.Location = new Point(347, 4);
-            cbStreak.Name = "cbStreak";
-            cbStreak.Size = new Size(120, 28);
-            cbStreak.TabIndex = 0;
             // 
             // lblDate
             // 
@@ -128,20 +113,8 @@
             flpHabitStreak.Dock = DockStyle.Fill;
             flpHabitStreak.Location = new Point(0, 36);
             flpHabitStreak.Name = "flpHabitStreak";
-            flpHabitStreak.Size = new Size(800, 221);
+            flpHabitStreak.Size = new Size(781, 374);
             flpHabitStreak.TabIndex = 8;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.FromArgb(208, 221, 208);
-            panel3.Controls.Add(HabitTitlePanel);
-            panel3.Controls.Add(label1);
-            panel3.Controls.Add(label2);
-            panel3.Dock = DockStyle.Top;
-            panel3.Location = new Point(0, 0);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(800, 36);
-            panel3.TabIndex = 1;
             // 
             // HabitTitlePanel
             // 
@@ -151,8 +124,8 @@
             HabitTitlePanel.Dock = DockStyle.Top;
             HabitTitlePanel.Location = new Point(0, 0);
             HabitTitlePanel.Name = "HabitTitlePanel";
-            HabitTitlePanel.Size = new Size(800, 36);
-            HabitTitlePanel.TabIndex = 48;
+            HabitTitlePanel.Size = new Size(781, 36);
+            HabitTitlePanel.TabIndex = 1;
             // 
             // lblName
             // 
@@ -178,44 +151,37 @@
             lblDesc.TabIndex = 47;
             lblDesc.Text = "Descrição";
             // 
-            // label1
+            // cbStreak
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.FromArgb(208, 221, 208);
-            label1.Font = new Font("Sitka Display", 12F);
-            label1.ForeColor = Color.FromArgb(101, 92, 86);
-            label1.Location = new Point(3, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(61, 29);
-            label1.TabIndex = 46;
-            label1.Text = "Nome";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.FromArgb(208, 221, 208);
-            label2.Font = new Font("Sitka Display", 12F);
-            label2.ForeColor = Color.FromArgb(101, 92, 86);
-            label2.Location = new Point(251, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(90, 29);
-            label2.TabIndex = 47;
-            label2.Text = "Descrição";
+            cbStreak.BackColor = Color.FromArgb(208, 221, 208);
+            cbStreak.DrawMode = DrawMode.OwnerDrawFixed;
+            cbStreak.DropDownHeight = 100;
+            cbStreak.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbStreak.Font = new Font("Sitka Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbStreak.ForeColor = Color.FromArgb(101, 92, 86);
+            cbStreak.HoverSelectionColor = Color.FromArgb(155, 184, 153);
+            cbStreak.IntegralHeight = false;
+            cbStreak.ItemHeight = 20;
+            cbStreak.Items.AddRange(new object[] { "Sim", "Não" });
+            cbStreak.Location = new Point(337, 6);
+            cbStreak.MaxDropDownItems = 2;
+            cbStreak.Name = "cbStreak";
+            cbStreak.Size = new Size(133, 26);
+            cbStreak.StartIndex = 0;
+            cbStreak.TabIndex = 49;
             // 
             // BasePanelHabit
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 257);
-            Controls.Add(HabitBasePanel);
+            ClientSize = new Size(781, 410);
+            Controls.Add(HabitPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "BasePanelHabit";
             Text = "BasePanelHabit";
-            HabitBasePanel.ResumeLayout(false);
+            HabitPanel.ResumeLayout(false);
             StreakPanel.ResumeLayout(false);
             StreakPanel.PerformLayout();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
             HabitTitlePanel.ResumeLayout(false);
             HabitTitlePanel.PerformLayout();
             ResumeLayout(false);
@@ -223,18 +189,15 @@
 
         #endregion
 
-        public Panel HabitBasePanel;
         private Panel StreakPanel;
         private Button btnConfStreak;
-        private ComboBox cbStreak;
         private Label lblDate;
         private Label lblStreakDone;
-        public FlowLayoutPanel flpHabitStreak;
-        private Panel panel3;
-        public Panel HabitTitlePanel;
+        private Panel HabitPanel;
+        private FlowLayoutPanel flpHabitStreak;
+        private Panel HabitTitlePanel;
         private Label lblName;
         private Label lblDesc;
-        private Label label1;
-        private Label label2;
+        private ReaLTaiizor.Controls.ComboBoxEdit cbStreak;
     }
 }

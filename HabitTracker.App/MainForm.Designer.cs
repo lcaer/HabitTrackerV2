@@ -67,6 +67,7 @@
             btnRegHabit.Size = new Size(32, 34);
             btnRegHabit.TabIndex = 10;
             btnRegHabit.UseVisualStyleBackColor = true;
+            btnRegHabit.Click += btnRegHabit_Click;
             // 
             // MainForm
             // 

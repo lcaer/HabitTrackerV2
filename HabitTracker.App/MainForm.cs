@@ -35,6 +35,12 @@ namespace HabitTracker.App
                 }
             }
         }
+
+        private void btnRegHabit_Click(object sender, EventArgs e)
+        {
+            ExibeForm<HabitRegister>();
+        }
+
         private void ExibeForm<TForm>() where TForm : Form
         {
             var cad = ConfigureDI.ServicesProvider!.GetService<TForm>();
