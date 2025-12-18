@@ -30,6 +30,7 @@
         {
             HabitPanel = new Panel();
             StreakPanel = new Panel();
+            chStreak = new ReaLTaiizor.Controls.FoxCheckBox();
             btnConfStreak = new Button();
             lblDate = new Label();
             lblStreakDone = new Label();
@@ -37,7 +38,6 @@
             HabitTitlePanel = new Panel();
             lblName = new Label();
             lblDesc = new Label();
-            cbStreak = new ReaLTaiizor.Controls.ComboBoxEdit();
             HabitPanel.SuspendLayout();
             StreakPanel.SuspendLayout();
             HabitTitlePanel.SuspendLayout();
@@ -52,21 +52,44 @@
             HabitPanel.Dock = DockStyle.Fill;
             HabitPanel.Location = new Point(0, 0);
             HabitPanel.Name = "HabitPanel";
-            HabitPanel.Size = new Size(781, 410);
+            HabitPanel.Size = new Size(781, 408);
             HabitPanel.TabIndex = 10;
             // 
             // StreakPanel
             // 
             StreakPanel.BackColor = Color.FromArgb(208, 221, 208);
-            StreakPanel.Controls.Add(cbStreak);
+            StreakPanel.Controls.Add(chStreak);
             StreakPanel.Controls.Add(btnConfStreak);
             StreakPanel.Controls.Add(lblDate);
             StreakPanel.Controls.Add(lblStreakDone);
             StreakPanel.Dock = DockStyle.Bottom;
-            StreakPanel.Location = new Point(0, 374);
+            StreakPanel.Location = new Point(0, 372);
             StreakPanel.Name = "StreakPanel";
             StreakPanel.Size = new Size(781, 36);
             StreakPanel.TabIndex = 9;
+            // 
+            // chStreak
+            // 
+            chStreak.BackColor = Color.FromArgb(229, 243, 229);
+            chStreak.Checked = true;
+            chStreak.CheckedBorderColorA = Color.FromArgb(155, 184, 153);
+            chStreak.CheckedBorderColorB = Color.FromArgb(155, 184, 153);
+            chStreak.CheckedColor = Color.FromArgb(155, 184, 153);
+            chStreak.DisabledCheckedBorderColorA = Color.FromArgb(230, 230, 230);
+            chStreak.DisabledCheckedBorderColorB = Color.FromArgb(124, 166, 191);
+            chStreak.DisabledCheckedColor = Color.FromArgb(125, 183, 216);
+            chStreak.DisabledUncheckedBorderColorA = Color.FromArgb(230, 230, 230);
+            chStreak.DisabledUncheckedBorderColorB = Color.FromArgb(226, 189, 133);
+            chStreak.DisabledUncheckedColor = Color.FromArgb(255, 203, 124);
+            chStreak.EnabledCalc = true;
+            chStreak.Location = new Point(395, 5);
+            chStreak.Name = "chStreak";
+            chStreak.Size = new Size(55, 28);
+            chStreak.TabIndex = 49;
+            chStreak.Text = "foxCheckBox2";
+            chStreak.UncheckedBorderColorA = Color.FromArgb(155, 184, 153);
+            chStreak.UncheckedBorderColorB = Color.FromArgb(155, 184, 153);
+            chStreak.UncheckedColor = Color.FromArgb(155, 184, 153);
             // 
             // btnConfStreak
             // 
@@ -101,7 +124,7 @@
             lblStreakDone.BackColor = Color.FromArgb(208, 221, 208);
             lblStreakDone.Font = new Font("Sitka Display", 12F);
             lblStreakDone.ForeColor = Color.FromArgb(101, 92, 86);
-            lblStreakDone.Location = new Point(251, 0);
+            lblStreakDone.Location = new Point(299, 0);
             lblStreakDone.Name = "lblStreakDone";
             lblStreakDone.Size = new Size(90, 29);
             lblStreakDone.TabIndex = 47;
@@ -113,7 +136,7 @@
             flpHabitStreak.Dock = DockStyle.Fill;
             flpHabitStreak.Location = new Point(0, 36);
             flpHabitStreak.Name = "flpHabitStreak";
-            flpHabitStreak.Size = new Size(781, 374);
+            flpHabitStreak.Size = new Size(781, 372);
             flpHabitStreak.TabIndex = 8;
             // 
             // HabitTitlePanel
@@ -151,33 +174,15 @@
             lblDesc.TabIndex = 47;
             lblDesc.Text = "Descrição";
             // 
-            // cbStreak
-            // 
-            cbStreak.BackColor = Color.FromArgb(208, 221, 208);
-            cbStreak.DrawMode = DrawMode.OwnerDrawFixed;
-            cbStreak.DropDownHeight = 100;
-            cbStreak.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbStreak.Font = new Font("Sitka Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbStreak.ForeColor = Color.FromArgb(101, 92, 86);
-            cbStreak.HoverSelectionColor = Color.FromArgb(155, 184, 153);
-            cbStreak.IntegralHeight = false;
-            cbStreak.ItemHeight = 20;
-            cbStreak.Items.AddRange(new object[] { "Sim", "Não" });
-            cbStreak.Location = new Point(337, 6);
-            cbStreak.MaxDropDownItems = 2;
-            cbStreak.Name = "cbStreak";
-            cbStreak.Size = new Size(133, 26);
-            cbStreak.StartIndex = 0;
-            cbStreak.TabIndex = 49;
-            // 
             // BasePanelHabit
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(781, 410);
+            ClientSize = new Size(781, 408);
             Controls.Add(HabitPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "BasePanelHabit";
+            StartPosition = FormStartPosition.Manual;
             Text = "BasePanelHabit";
             HabitPanel.ResumeLayout(false);
             StreakPanel.ResumeLayout(false);
@@ -186,7 +191,6 @@
             HabitTitlePanel.PerformLayout();
             ResumeLayout(false);
         }
-
         #endregion
 
         private Panel StreakPanel;
@@ -198,6 +202,6 @@
         private Panel HabitTitlePanel;
         private Label lblName;
         private Label lblDesc;
-        private ReaLTaiizor.Controls.ComboBoxEdit cbStreak;
+        private ReaLTaiizor.Controls.FoxCheckBox chStreak;
     }
 }

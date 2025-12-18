@@ -1,11 +1,7 @@
 ﻿using HabitTracker.App.Bases;
-using HabitTracker.App.Infra;
-using HabitTracker.App.Models;
-using HabitTracker.App.Others;
 using HabitTracker.Domain.Bases;
 using HabitTracker.Domain.Entities;
 using HabitTracker.Service.Validators;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace HabitTracker.App.Registers
 {
@@ -13,7 +9,7 @@ namespace HabitTracker.App.Registers
     {
         private IBaseService<Habit> _habitService;
         private IBaseService<Schedule> _scheduleService;
-        private IBaseService<User> _userService;
+        //private IBaseService<User> _userService;
         int wasSaved = 0;
         public HabitRegister(
             IBaseService<Habit> habitService, 

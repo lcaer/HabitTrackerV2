@@ -1,7 +1,4 @@
-﻿using HabitTracker.App.Properties;
-using System.Drawing.Printing;
-
-namespace HabitTracker.App.Bases
+﻿namespace HabitTracker.App.Bases
 {
     public partial class BaseForm : Form
     {

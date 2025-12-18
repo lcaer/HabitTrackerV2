@@ -1,6 +1,5 @@
 ﻿using HabitTracker.App.Bases;
 using HabitTracker.App.Infra;
-using HabitTracker.App.Models;
 using HabitTracker.App.Others;
 using HabitTracker.Domain.Bases;
 using HabitTracker.Domain.Entities;

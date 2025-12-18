@@ -1,7 +1,6 @@
-﻿using HabitTracker.App.Others;
-using HabitTracker.Domain.Bases;
+﻿using HabitTracker.Domain.Bases;
 using HabitTracker.Domain.Entities;
-using HabitTracker.Service.Validators;
+using Microsoft.VisualBasic.Devices;
 
 namespace HabitTracker.App.Bases
 {
@@ -13,11 +12,20 @@ namespace HabitTracker.App.Bases
         {
             _habitService = habitService;
             _scheduleService = scheduleService;
+
+            InitializeComponent();
             ListHabits();
             //get the habits
             //UpdateContent("Acordar", "Acordar cedo", "12/12/2020"); funciona
             //gravar buttons 
 
+        }
+
+        private List<Habit> GetHabits()
+        {
+            User user = MainForm.User;
+            var habits = _habitService.Get<Habit>().Where(h => h.User.Id == user.Id).ToList();
+            return habits;
         }
 
         private void PopulateHabitButtons(int streakGoal)
@@ -45,19 +53,53 @@ namespace HabitTracker.App.Bases
         private void ListHabits()
         {
             int hcount = 1;
-            User user = MainForm.User;
-            var habits = _habitService.Get<Habit>().Where(h => h.User.Id == user.Id).ToList();
+            List<Habit>? habits = GetHabits();
             foreach (Habit habit in habits)
             {
                 var schedule = _scheduleService.Get<Schedule>().Where(s => s.Id == habit.Schedule.Id).First();
-                MessageBox.Show("Habit: " + habit.Name + "\nhcount: " + hcount + "\nLocation" + Location.ToString());
+                //MessageBox.Show("Habit: " + habit.Name + "\nhcount: " + hcount + "\nLocation" + Location.ToString())
                 //Location = new Point(Location.X, (Size.Width * hcount));
-                InitializeComponent();
-                PopulateHabitButtons(/*habit.GoalStreak.Value*/365);
-                UpdateContent(habit.Name, habit.Description, schedule.Date.Value.Date.ToString());
+                int panelSize = PanelSize(habit.GoalStreak.Value, 12, 360);
+                PopulateHabitButtons(habit.GoalStreak.Value);
+                Size = new Size(781, panelSize);
+                UpdateContent(habit.Name, habit.Description, schedule.Date.Value.ToShortDateString());
                 hcount++;
             }
 
+        }
+
+        private int PanelSize(int goalStreak, int c, int obj)
+        {
+            int size = 0, t = 0; // min 100 -  max 408
+
+            
+
+            if (goalStreak > 360 && goalStreak <= 365)
+            {
+                size = 408;
+            }
+            if (goalStreak > 0 && goalStreak <= 30)
+            {
+                size = 100;
+            }
+
+            if (goalStreak > 30 && goalStreak <= 360) 
+            {
+                if (obj >= goalStreak && (obj-goalStreak)<=29)
+                {
+                    t = 1;
+                    size = 72 + (28 * c);
+                }
+                else
+                {
+                    size = PanelSize(goalStreak, c - 1, obj - 30);
+                }
+            }
+
+            //MessageBox.Show("goal: " + goalStreak + " obj: " + obj + " c: " + c +
+            //" size: " + size + " obj-goal: " + (obj - goalStreak) + " t: " + t);
+
+            return size;
         }
 
         private void UpdateContent(string name, string desc, string data)
@@ -69,12 +111,17 @@ namespace HabitTracker.App.Bases
 
         private void btnConfStreak_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("1");
+            List<Habit>? habits = GetHabits();
+            //habits[panelId].Schedule.Id;
+            foreach (Habit habit in habits)
+            {
+                var schedule = _scheduleService.Get<Schedule>().Where(s => s.Id == habit.Schedule.Id).First();
+                MessageBox.Show("sh id: " + schedule.Id);
+                lblDate.Text = schedule.Date.Value.AddDays(1).ToShortDateString();
 
+            }
         }
 
-        private void flpHabitStreak_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
