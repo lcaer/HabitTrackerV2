@@ -77,9 +77,10 @@ namespace HabitTracker.App.Bases
                 Button btn = new Button();
                 btn.Width = buttonSize;
                 btn.Height = buttonSize;
+                btn.Tag = i;
                 btn.Text = "";
                 btn.Enabled = false;
-                btn.BackColor = Color.FromArgb(155, 184, 153);
+                btn.BackColor = Color.FromArgb(208, 221, 208);
                 btn.ForeColor = Color.FromArgb(229, 243, 229);
                 btn.FlatStyle = FlatStyle.Flat;
 
@@ -131,17 +132,37 @@ namespace HabitTracker.App.Bases
         }
         private void btnConfStreak_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("1");
+            //int count = 0;
+            bool wasChecked = chStreak.Checked;
             List<Habit>? habits = GetHabits();
-            //habits[panelId].Schedule.Id;
+
             foreach (Habit habit in habits)
             {
                 var schedule = _scheduleService.Get<Schedule>().Where(s => s.Id == habit.Schedule.Id).First();
-                MessageBox.Show("sh id: " + schedule.Id);
-                lblDate.Text = schedule.Date.Value.AddDays(1).ToShortDateString();
+                DateTime newDate = schedule.Date.Value.AddDays(1);
+                lblDate.Text = newDate.ToShortDateString();
+            }
 
+            foreach (Control control in flpHabitStreak.Controls)
+            {
+                if (control is Button btn)
+                {
+                    if (btn.BackColor == Color.FromArgb(208, 221, 208))
+                    {
+                        if (wasChecked == false)
+                        {
+                            btn.BackColor = Color.FromArgb(162, 85, 75);
+                            break;
+                        }
+                        else
+                        {
+                            btn.BackColor = Color.FromArgb(155, 184, 153);
+                            break;
+                        }
+                    }
+
+                }
             }
         }
-
     }
 }
