@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BasePanelHabit));
             HabitPanel = new Panel();
             StreakPanel = new Panel();
             chStreak = new ReaLTaiizor.Controls.FoxCheckBox();
@@ -36,6 +37,8 @@
             lblStreakDone = new Label();
             flpHabitStreak = new FlowLayoutPanel();
             HabitTitlePanel = new Panel();
+            btnEdit = new Button();
+            btnDelete = new Button();
             lblName = new Label();
             lblDesc = new Label();
             HabitPanel.SuspendLayout();
@@ -142,6 +145,8 @@
             // HabitTitlePanel
             // 
             HabitTitlePanel.BackColor = Color.FromArgb(208, 221, 208);
+            HabitTitlePanel.Controls.Add(btnEdit);
+            HabitTitlePanel.Controls.Add(btnDelete);
             HabitTitlePanel.Controls.Add(lblName);
             HabitTitlePanel.Controls.Add(lblDesc);
             HabitTitlePanel.Dock = DockStyle.Top;
@@ -149,6 +154,34 @@
             HabitTitlePanel.Name = "HabitTitlePanel";
             HabitTitlePanel.Size = new Size(781, 36);
             HabitTitlePanel.TabIndex = 1;
+            // 
+            // btnEdit
+            // 
+            btnEdit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnEdit.FlatAppearance.BorderSize = 0;
+            btnEdit.FlatStyle = FlatStyle.Flat;
+            btnEdit.ForeColor = Color.FromArgb(208, 221, 208);
+            btnEdit.Image = (Image)resources.GetObject("btnEdit.Image");
+            btnEdit.Location = new Point(694, 0);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(36, 36);
+            btnEdit.TabIndex = 51;
+            btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Click += btnEdit_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnDelete.FlatAppearance.BorderSize = 0;
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.ForeColor = Color.FromArgb(208, 221, 208);
+            btnDelete.Image = (Image)resources.GetObject("btnDelete.Image");
+            btnDelete.Location = new Point(736, 0);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(36, 36);
+            btnDelete.TabIndex = 50;
+            btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // lblName
             // 
@@ -184,7 +217,6 @@
             Name = "BasePanelHabit";
             StartPosition = FormStartPosition.Manual;
             Text = "BasePanelHabit";
-            DoubleClick += BasePanelHabit_DoubleClick;
             HabitPanel.ResumeLayout(false);
             StreakPanel.ResumeLayout(false);
             StreakPanel.PerformLayout();
@@ -204,5 +236,7 @@
         private Label lblName;
         private Label lblDesc;
         private ReaLTaiizor.Controls.FoxCheckBox chStreak;
+        private Button btnDelete;
+        private Button btnEdit;
     }
 }

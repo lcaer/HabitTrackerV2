@@ -1,4 +1,5 @@
 ﻿using HabitTracker.App.Infra;
+using HabitTracker.App.Registers;
 using HabitTracker.Domain.Bases;
 using HabitTracker.Domain.Entities;
 using HabitTracker.Service.Validators;
@@ -188,6 +189,17 @@ namespace HabitTracker.App.Bases
             }
         }
 
+        private void ShowForm<TForm>(Action<TForm> configure = null) where TForm : Form
+        {
+            var cad = ConfigureDI.ServicesProvider!.GetService<TForm>();
+            if (cad != null && !cad.IsDisposed)
+            {
+                cad.MdiParent = MainForm.ActiveForm;
+                configure?.Invoke(cad);
+                cad.Show();
+            }
+        }
+
         private void btnConfStreak_Click(object sender, EventArgs e)
         {
             bool wasChecked = chStreak.Checked;
@@ -207,7 +219,18 @@ namespace HabitTracker.App.Bases
                 lblDate.Text = newDate.ToShortDateString();
             }
         }
-        private void BasePanelHabit_DoubleClick(object sender, EventArgs e)
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            ShowForm<HabitRegister>(f =>
+            {
+                f.IsAlteration = true;
+                f.SelectedHabit = this._habit;
+                f.LoadHabitData();
+            });
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
         {
 
         }

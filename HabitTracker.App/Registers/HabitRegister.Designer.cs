@@ -30,17 +30,17 @@
         {
             lblColor = new Label();
             txtColor = new TextBox();
-            nudGoalStrak = new NumericUpDown();
+            nudGoalStreak = new NumericUpDown();
             lblGoalStreak = new Label();
             lblName = new Label();
             txtName = new TextBox();
             btnRegister = new ReaLTaiizor.Controls.HopeRoundButton();
             lblDescription = new Label();
             txtDescription = new TextBox();
-            lblTitle_RegisterUser = new Label();
+            lblTitle_RegisterHabit = new Label();
             datePicker = new ReaLTaiizor.Controls.HopeDatePicker();
             lblDate = new Label();
-            ((System.ComponentModel.ISupportInitialize)nudGoalStrak).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudGoalStreak).BeginInit();
             SuspendLayout();
             // 
             // lblColor
@@ -68,18 +68,18 @@
             txtColor.Size = new Size(189, 26);
             txtColor.TabIndex = 77;
             // 
-            // nudGoalStrak
+            // nudGoalStreak
             // 
-            nudGoalStrak.BackColor = Color.FromArgb(208, 221, 208);
-            nudGoalStrak.BorderStyle = BorderStyle.None;
-            nudGoalStrak.Font = new Font("Microsoft Yi Baiti", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            nudGoalStrak.ForeColor = Color.FromArgb(101, 92, 86);
-            nudGoalStrak.Location = new Point(307, 433);
-            nudGoalStrak.Maximum = new decimal(new int[] { 365, 0, 0, 0 });
-            nudGoalStrak.Name = "nudGoalStrak";
-            nudGoalStrak.Size = new Size(80, 24);
-            nudGoalStrak.TabIndex = 75;
-            nudGoalStrak.TextAlign = HorizontalAlignment.Center;
+            nudGoalStreak.BackColor = Color.FromArgb(208, 221, 208);
+            nudGoalStreak.BorderStyle = BorderStyle.None;
+            nudGoalStreak.Font = new Font("Microsoft Yi Baiti", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            nudGoalStreak.ForeColor = Color.FromArgb(101, 92, 86);
+            nudGoalStreak.Location = new Point(307, 433);
+            nudGoalStreak.Maximum = new decimal(new int[] { 365, 0, 0, 0 });
+            nudGoalStreak.Name = "nudGoalStreak";
+            nudGoalStreak.Size = new Size(80, 24);
+            nudGoalStreak.TabIndex = 75;
+            nudGoalStreak.TextAlign = HorizontalAlignment.Center;
             // 
             // lblGoalStreak
             // 
@@ -166,17 +166,17 @@
             txtDescription.Size = new Size(309, 126);
             txtDescription.TabIndex = 70;
             // 
-            // lblTitle_RegisterUser
+            // lblTitle_RegisterHabit
             // 
-            lblTitle_RegisterUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lblTitle_RegisterUser.AutoSize = true;
-            lblTitle_RegisterUser.Font = new Font("Sitka Text", 15F);
-            lblTitle_RegisterUser.Location = new Point(307, 82);
-            lblTitle_RegisterUser.Name = "lblTitle_RegisterUser";
-            lblTitle_RegisterUser.Size = new Size(202, 36);
-            lblTitle_RegisterUser.TabIndex = 68;
-            lblTitle_RegisterUser.Text = "Cadastro Hábito";
-            lblTitle_RegisterUser.TextAlign = ContentAlignment.MiddleCenter;
+            lblTitle_RegisterHabit.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblTitle_RegisterHabit.AutoSize = true;
+            lblTitle_RegisterHabit.Font = new Font("Sitka Text", 15F);
+            lblTitle_RegisterHabit.Location = new Point(307, 82);
+            lblTitle_RegisterHabit.Name = "lblTitle_RegisterHabit";
+            lblTitle_RegisterHabit.Size = new Size(202, 36);
+            lblTitle_RegisterHabit.TabIndex = 68;
+            lblTitle_RegisterHabit.Text = "Cadastro Hábito";
+            lblTitle_RegisterHabit.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // datePicker
             // 
@@ -230,29 +230,29 @@
             Controls.Add(datePicker);
             Controls.Add(lblColor);
             Controls.Add(txtColor);
-            Controls.Add(nudGoalStrak);
+            Controls.Add(nudGoalStreak);
             Controls.Add(lblGoalStreak);
             Controls.Add(lblName);
             Controls.Add(txtName);
             Controls.Add(btnRegister);
             Controls.Add(lblDescription);
             Controls.Add(txtDescription);
-            Controls.Add(lblTitle_RegisterUser);
+            Controls.Add(lblTitle_RegisterHabit);
             Name = "HabitRegister";
             Text = "HabitRegister";
-            Controls.SetChildIndex(lblTitle_RegisterUser, 0);
+            Controls.SetChildIndex(lblTitle_RegisterHabit, 0);
             Controls.SetChildIndex(txtDescription, 0);
             Controls.SetChildIndex(lblDescription, 0);
             Controls.SetChildIndex(btnRegister, 0);
             Controls.SetChildIndex(txtName, 0);
             Controls.SetChildIndex(lblName, 0);
             Controls.SetChildIndex(lblGoalStreak, 0);
-            Controls.SetChildIndex(nudGoalStrak, 0);
+            Controls.SetChildIndex(nudGoalStreak, 0);
             Controls.SetChildIndex(txtColor, 0);
             Controls.SetChildIndex(lblColor, 0);
             Controls.SetChildIndex(datePicker, 0);
             Controls.SetChildIndex(lblDate, 0);
-            ((System.ComponentModel.ISupportInitialize)nudGoalStrak).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudGoalStreak).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -261,14 +261,14 @@
 
         private Label lblColor;
         private TextBox txtColor;
-        private NumericUpDown nudGoalStrak;
+        private NumericUpDown nudGoalStreak;
         private Label lblGoalStreak;
         private Label lblName;
         private TextBox txtName;
         private ReaLTaiizor.Controls.HopeRoundButton btnRegister;
         private Label lblDescription;
         private TextBox txtDescription;
-        private Label lblTitle_RegisterUser;
+        private Label lblTitle_RegisterHabit;
         private ReaLTaiizor.Controls.HopeDatePicker datePicker;
         private Label lblDate;
     }

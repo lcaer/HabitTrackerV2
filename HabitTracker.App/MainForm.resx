@@ -120,16 +120,16 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnConfig.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAf5JREFUSEu9
-        VTtOw0AQTUFJwVE2UhyvU/kIPkgKihwkEvTQh55IIEGBRG4QJCIRiYKCMgVleG9mktiedVLBk0ba+ewb
-        z8x6t/fv6GfFRRjEKuSjq34Wb8Igf4D+lJQs3ksMYqFX3Gs0HqEszxA0AeEPZAvZQF9DFpDnDqEPMYzd
-        75mQy2gPCFlO8m3IizsEhWRQB+TjhjHqXnBk8dJcChCiLfhyBJhJwEAXXEPKb0lYyaFdUCrNXAzMJIBd
-        WmGqQ8ovlUi7YmUmZh1dS9ZWW05WkEogs5SZTM0kgbeQtakCVFOCfKZSlGZuIJWAIBc5TRXDI2RhqpLr
-        qVjB/ibrRBL4uhLwdM1N9YFYc1ArWWvJTNQ4AER73w7O3jZgzQRLWTNBlr/TJs4aumbU5vMJdi0S4nyp
-        62aLJKZjRicTEJqElUBS5DojDtPNyPE5g+FIC9jCdchG56kZOT5nMByxM8GnkGuCb9rMnUyAY5q/mLqH
-        CzTUWvSl5K5F7pi6H40gOcXUBjRJx4zcj2ZXhal7kJxiqkNqRtYyd1XYZRf/6LLT63qDq3ZmJkHXKdoh
-        WQE4tILadU3UHpxZGOaRpZrrJKQt3KPk/PqxuQ7Q3smTyf7xhPArPiCvkPSbrD7E1PZkxfjox2GDPvqD
-        OIXwdM0h0uuE0McYxnJP96P/N+j1fgHcRky2DNsHigAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAHvSURBVEhLzVU7TsNAEE1BQUGRgoID5ACLZGfXxkUOQpEiBSUFx0AiHZGSAyCRAinpyS2gSyTo
+        oKOkgDdvJ/7EjvIzEk8aef125s14vTvb+BcwYdQxoXs0gXumyRicTh8Gigf2B/YO8Zk3GYOrIwkEnyC2
+        MJ3OkVJIGp+Qw5xS20FEEHSJJbiHXZ23XQtCc3AP6pJCOJmjD3wZI7G5QkqAQ5+fHthPfYp9mYvEqUsK
+        4TiX+S1jbtWlCKxn4h1cX98DjLsmTlp0qIDM0Qe+fF8WCC065IFJ7BD7Zpw7VmpnSCw1oKWUh2m7M2a2
+        8bVSJfhKZXtyu3aVLgEaN9SCplIg4+QU5LcJ7Z1SBUB0wqDQvtI4dhOdLkA0qAVNpTyQeaCBhZ/EyllR
+        1FMKXxz1yK18icSSh5ZSRSD7SAObSkmCsVStryn8l7ixvopf0xdoR0qVgcnhmgQv+ppCuDUJhkoV8adL
+        lP1kfwZWAX7qk6NqVs5CpjpdgGhQK/+Tt96mslzedtumAgRJl6zroM2UypBrFTwLe7YKOQNYvopWIYCD
+        9hL74ZPRtmt2WUx1sxPk2vUAhhYcSbuWvr+uXS/o49s1duGGdl0FBMmFM8//G71w5J5Iz8HeQIXLK5Nd
+        0puMZVlqvZe5PfVOxvLUJX4YGo1fs50Kiobao0sAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="btnRegHabit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
