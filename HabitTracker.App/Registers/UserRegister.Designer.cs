@@ -328,8 +328,6 @@
         }
 
         #endregion
-
-        private ReaLTaiizor.Controls.HopeRoundButton btnRegister;
         private LinkLabel lklblLogin;
         private Label lblPassword;
         private TextBox txtPassword;
@@ -346,5 +344,6 @@
         private TextBox txtName;
         private CheckBox chbPassword;
         private CheckBox chbConfPassword;
+        private ReaLTaiizor.Controls.HopeRoundButton btnRegister;
     }
 }

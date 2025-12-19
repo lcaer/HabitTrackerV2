@@ -97,7 +97,7 @@ namespace HabitTracker.App.Bases
 
         private int PanelSize(int goalStreak, int c, int obj)
         {
-            int size = 0, t = 0; // min 100 -  max 408
+            int size = 0; // min 100 -  max 408
 
             if (goalStreak > 360 && goalStreak <= 365)
             {
@@ -112,7 +112,6 @@ namespace HabitTracker.App.Bases
             {
                 if (obj >= goalStreak && (obj - goalStreak) <= 29)
                 {
-                    t = 1;
                     size = 72 + (28 * c);
                 }
                 else

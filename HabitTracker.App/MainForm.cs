@@ -10,6 +10,7 @@ namespace HabitTracker.App
     public partial class MainForm : BaseForm
     {
         public static User User { get; set; }
+        public bool isAlteration = false;
 
         public MainForm()
         {
@@ -42,7 +43,10 @@ namespace HabitTracker.App
 
         private void bntConfig_Click(object sender, EventArgs e)
         {
-            ShowForm<UserRegister>();
+            ShowForm<UserRegister>(f => {
+                f.IsAlteration = true;
+                f.LoadUserData();
+            });
         }
 
         private void ShowForm<TForm>() where TForm : Form
@@ -51,6 +55,16 @@ namespace HabitTracker.App
             if (cad != null && !cad.IsDisposed)
             {
                 cad.MdiParent = this;
+                cad.Show();
+            }
+        }
+        private void ShowForm<TForm>(Action<TForm> configure = null) where TForm : Form
+        {
+            var cad = ConfigureDI.ServicesProvider!.GetService<TForm>();
+            if (cad != null && !cad.IsDisposed)
+            {
+                cad.MdiParent = this;
+                configure?.Invoke(cad);
                 cad.Show();
             }
         }
