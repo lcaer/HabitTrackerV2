@@ -203,8 +203,15 @@ namespace HabitTracker.App.Bases
                     "HabitTracker", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (res == DialogResult.Yes)
                 {
-                    _habitService.Delete(_habit.Id);
-                    _scheduleService.Delete(_habit.Schedule.Id);
+                    var habitId = _habit.Id;
+                    var scheduleId = _habit.Schedule?.Id;
+
+                    if (scheduleId.HasValue)
+                    {
+                        _scheduleService.Delete(scheduleId.Value);
+                    }
+
+                    _habitService.Delete(habitId);
                 }
             }
             catch (Exception ex)
@@ -257,14 +264,10 @@ namespace HabitTracker.App.Bases
         private void btnDelete_Click(object sender, EventArgs e)
         {
             Delete();
-
-            User user = MainForm.User;
-            var habits = _habitService.Get<Habit>().Where(h => h.User.Id == user.Id).ToList();
-
             var openPanels = Application.OpenForms.OfType<BasePanelHabit>().ToList();
             foreach (var p in openPanels) p.Close();
-            ShowForm<HabitRegister>();
-            }
+            GenerateWindows(_habitService, _scheduleService);
+            ShowForm<HabitRegister>();  
         }
     }
 }

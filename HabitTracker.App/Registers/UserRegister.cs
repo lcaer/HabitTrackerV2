@@ -151,8 +151,22 @@ namespace HabitTracker.App.Registers
         private void btnDelete_Click(object sender, EventArgs e)
         {
             Delete();
+
+            var openPanels = Application.OpenForms.OfType<BasePanelHabit>().ToList();
+            foreach (var panel in openPanels)
+            {
+                panel.Close();
+            }
+            if (this.MdiParent is MainForm main)
+            {
+                main.btnConfig.Visible = false;
+                main.btnRegHabit.Visible = false;
+                main.Update_lblUser("");
+            }
+
             this.Close();
             ShowForm<Login>();
+
         }
     }
 }

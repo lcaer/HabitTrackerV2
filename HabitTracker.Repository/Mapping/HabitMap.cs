@@ -28,9 +28,14 @@ namespace HabitTracker.Repository.Mapping
             builder.Property(prop => prop.Color)
                 .IsRequired();
 
-            builder.HasOne(prop => prop.User);
+            builder.HasOne(prop => prop.User)
+                   .WithMany()
+                   .HasForeignKey("UserId")
+                   .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasOne(prop => prop.Schedule);
+            builder.HasOne(prop => prop.Schedule)
+                /*.WithOne().HasForeignKey<Habit>("SchedulId")
+                .OnDelete(DeleteBehavior.Cascade)*/;
         }
     }
 }

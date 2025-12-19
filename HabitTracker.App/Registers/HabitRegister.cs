@@ -81,6 +81,12 @@ namespace HabitTracker.App.Registers
                     _scheduleService.Add<Schedule, Schedule, ScheduleValidator>(schedule);
                     _habitService.Add<Habit, Habit, HabitValidator>(habit);
                     wasSaved = 1;
+
+                    if (this.MdiParent is MainForm main)
+                    {
+                        main.btnConfig.Visible = true;
+                        main.btnRegHabit.Visible = true;
+                    }
                 }
             }
             catch (Exception ex)
