@@ -28,6 +28,7 @@ namespace HabitTracker.App.Registers
                 lblTitle_RegisterUser.Text = "Edição Usuário";
                 btnRegister.Text = "Salvar";
                 lklblLogin.Visible = false;
+                btnDelete.Visible = true;
                 ObjectToForm(MainForm.User);
             }
         }
@@ -44,7 +45,7 @@ namespace HabitTracker.App.Registers
                 user.Password = txtPassword.Text;
             }
             user.Active = true;
-            if(op == 1)
+            if (op == 1)
             {
                 user.RegisterDate = DateTime.Now;
             }
@@ -83,10 +84,26 @@ namespace HabitTracker.App.Registers
             catch (Exception ex)
             {
                 wasSaved = 0;
-                MessageBox.Show(ex.Message, @"IFSP Store", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, @"HabitTrack", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        protected void Delete()
+        {
+            try
+            {
+                DialogResult res = MessageBox.Show("Deseja realmente deletar?", 
+                    "HabitTracker", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (res == DialogResult.Yes)
+                {
+                    _userService.Delete(MainForm.User.Id);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, @"HabitTrack", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void ShowForm<TForm>() where TForm : Form
         {
             var cad = ConfigureDI.ServicesProvider!.GetService<TForm>();
@@ -129,6 +146,13 @@ namespace HabitTracker.App.Registers
         private void chbConfPassword_CheckedChanged(object sender, EventArgs e)
         {
             txtConfPassword.UseSystemPasswordChar = chbConfPassword.Checked ? false : true;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            Delete();
+            this.Close();
+            ShowForm<Login>();
         }
     }
 }

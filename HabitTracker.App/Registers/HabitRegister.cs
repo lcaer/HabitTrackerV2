@@ -97,6 +97,10 @@ namespace HabitTracker.App.Registers
             {
                 this.Close();
                 BasePanelHabit.GenerateWindows(_habitService, _scheduleService);
+                if (this.MdiParent is MainForm main)
+                {
+                    main.btnConfig.Visible = true;
+                }
             }
         }
     }

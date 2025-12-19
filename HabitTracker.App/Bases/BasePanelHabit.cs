@@ -30,6 +30,12 @@ namespace HabitTracker.App.Bases
 
         public static void GenerateWindows(IBaseService<Habit> habitService, IBaseService<Schedule> scheduleService)
         {
+            var openPanels = Application.OpenForms.OfType<BasePanelHabit>().ToList();
+            foreach (var panel in openPanels)
+            {
+                panel.Close();
+            }
+
             User user = MainForm.User;
             var habits = habitService.Get<Habit>().Where(h => h.User.Id == user.Id).ToList();
 
@@ -189,6 +195,24 @@ namespace HabitTracker.App.Bases
             }
         }
 
+        protected void Delete()
+        {
+            try
+            {
+                DialogResult res = MessageBox.Show("Deseja realmente deletar?",
+                    "HabitTracker", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (res == DialogResult.Yes)
+                {
+                    _habitService.Delete(_habit.Id);
+                    _scheduleService.Delete(_habit.Schedule.Id);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, @"HabitTrack", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void ShowForm<TForm>(Action<TForm> configure = null) where TForm : Form
         {
             var cad = ConfigureDI.ServicesProvider!.GetService<TForm>();
@@ -232,7 +256,15 @@ namespace HabitTracker.App.Bases
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            Delete();
 
+            User user = MainForm.User;
+            var habits = _habitService.Get<Habit>().Where(h => h.User.Id == user.Id).ToList();
+
+            var openPanels = Application.OpenForms.OfType<BasePanelHabit>().ToList();
+            foreach (var p in openPanels) p.Close();
+            ShowForm<HabitRegister>();
+            }
         }
     }
 }

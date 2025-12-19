@@ -45,6 +45,7 @@
             txtName = new TextBox();
             chbPassword = new CheckBox();
             chbConfPassword = new CheckBox();
+            btnDelete = new ReaLTaiizor.Controls.HopeRoundButton();
             SuspendLayout();
             // 
             // btnRegister
@@ -281,12 +282,36 @@
             chbConfPassword.UseVisualStyleBackColor = true;
             chbConfPassword.CheckedChanged += chbConfPassword_CheckedChanged;
             // 
+            // btnDelete
+            // 
+            btnDelete.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnDelete.BorderColor = Color.FromArgb(48, 52, 55);
+            btnDelete.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btnDelete.DangerColor = Color.FromArgb(245, 108, 108);
+            btnDelete.DefaultColor = Color.FromArgb(48, 52, 55);
+            btnDelete.Font = new Font("Sitka Display", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnDelete.ForeColor = Color.FromArgb(208, 221, 208);
+            btnDelete.HoverTextColor = Color.FromArgb(48, 49, 51);
+            btnDelete.InfoColor = Color.FromArgb(208, 221, 208);
+            btnDelete.Location = new Point(480, 385);
+            btnDelete.Name = "btnDelete";
+            btnDelete.PrimaryColor = Color.FromArgb(48, 52, 55);
+            btnDelete.Size = new Size(132, 43);
+            btnDelete.SuccessColor = Color.FromArgb(103, 194, 58);
+            btnDelete.TabIndex = 50;
+            btnDelete.Text = "Deletar";
+            btnDelete.TextColor = Color.FromArgb(208, 221, 208);
+            btnDelete.Visible = false;
+            btnDelete.WarningColor = Color.FromArgb(230, 162, 60);
+            btnDelete.Click += btnDelete_Click;
+            // 
             // UserRegister
             // 
             AutoScaleDimensions = new SizeF(8F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(229, 243, 229);
             ClientSize = new Size(800, 450);
+            Controls.Add(btnDelete);
             Controls.Add(chbConfPassword);
             Controls.Add(chbPassword);
             Controls.Add(lblLogin);
@@ -323,6 +348,7 @@
             Controls.SetChildIndex(lblLogin, 0);
             Controls.SetChildIndex(chbPassword, 0);
             Controls.SetChildIndex(chbConfPassword, 0);
+            Controls.SetChildIndex(btnDelete, 0);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -345,5 +371,6 @@
         private CheckBox chbPassword;
         private CheckBox chbConfPassword;
         private ReaLTaiizor.Controls.HopeRoundButton btnRegister;
+        private ReaLTaiizor.Controls.HopeRoundButton btnDelete;
     }
 }
