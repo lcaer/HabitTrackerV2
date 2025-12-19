@@ -151,7 +151,6 @@ namespace HabitTracker.App.Registers
         private void btnDelete_Click(object sender, EventArgs e)
         {
             Delete();
-
             var openPanels = Application.OpenForms.OfType<BasePanelHabit>().ToList();
             foreach (var panel in openPanels)
             {

@@ -21,11 +21,6 @@ namespace HabitTracker.App.Bases
 
             InitializeComponent();
             MdiParent = MainForm.ActiveForm;
-
-            if (this.MdiParent is MainForm main)
-            {
-                main.btnRegHabit.Visible = true;
-            }
         }
 
         public static void GenerateWindows(IBaseService<Habit> habitService, IBaseService<Schedule> scheduleService)
@@ -38,6 +33,12 @@ namespace HabitTracker.App.Bases
 
             User user = MainForm.User;
             var habits = habitService.Get<Habit>().Where(h => h.User.Id == user.Id).ToList();
+
+            if (MainForm.ActiveForm is MainForm main)
+            {
+                main.btnRegHabit.Visible = habits.Any();
+                main.btnConfig.Visible = habits.Any();
+            }
 
             int offsetY = 0;
             bool isFirst = true;
@@ -256,7 +257,6 @@ namespace HabitTracker.App.Bases
         private void btnDelete_Click(object sender, EventArgs e)
         {
             Delete();
-
             var openPanels = Application.OpenForms.OfType<BasePanelHabit>().ToList();
             foreach (var p in openPanels) p.Close();
             GenerateWindows(_habitService, _scheduleService);
