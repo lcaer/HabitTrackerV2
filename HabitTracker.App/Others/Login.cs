@@ -15,7 +15,9 @@ namespace HabitTracker.App.Others
         private readonly IBaseService<Habit> _habitService;
         private readonly IBaseService<Schedule> _scheduleService;
 
-        public Login(IBaseService<User> userService, IBaseService<Habit> habitService, IBaseService<Schedule> scheduleService)
+        public Login(IBaseService<User> userService, 
+                     IBaseService<Habit> habitService, 
+                     IBaseService<Schedule> scheduleService)
         {
             _userService = userService;
             _habitService = habitService;
@@ -25,7 +27,7 @@ namespace HabitTracker.App.Others
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            User user = ObterUsuario(txtUser.Text, txtPassword.Text);
+            User user = GetUser(txtUser.Text, txtPassword.Text);
 
             if (user == null)
             {
@@ -60,20 +62,20 @@ namespace HabitTracker.App.Others
                 }
                 else
                 {
-                    ExibeForm<HabitRegister>();
+                    ShowForm<HabitRegister>();
                 }
             }
         }
 
-        private User? ObterUsuario(string login, string password)
+        private User? GetUser(string login, string password)
         {
-            ChecaExistenciaDeUsuarioCadastrado();
+            IsUserRegistered();
             var user = _userService.Get<User>().Where(x => x.Login == login).FirstOrDefault();
             if (user == null)
                 return null;
             return user.Password != password ? null : user;
         }
-        private void ChecaExistenciaDeUsuarioCadastrado()
+        private void IsUserRegistered()
         {
             var users = _userService.Get<User>().ToList();
             if (!users.Any())
@@ -94,9 +96,10 @@ namespace HabitTracker.App.Others
         private void lklblRegisterUser_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Close();
-            ExibeForm<UserRegister>();
+            ShowForm<UserRegister>();
         }
-        private void ExibeForm<TForm>() where TForm : Form
+        
+        private void ShowForm<TForm>() where TForm : Form
         {
             var cad = ConfigureDI.ServicesProvider!.GetService<TForm>();
             if (cad != null && !cad.IsDisposed)
@@ -105,6 +108,7 @@ namespace HabitTracker.App.Others
                 cad.Show();
             }
         }
+        
         private void chbPassword_CheckedChanged(object sender, EventArgs e)
         {
             txtPassword.UseSystemPasswordChar = chbPassword.Checked ? false : true;

@@ -39,7 +39,7 @@
             txtDescription = new TextBox();
             lblTitle_RegisterUser = new Label();
             datePicker = new ReaLTaiizor.Controls.HopeDatePicker();
-            label3 = new Label();
+            lblDate = new Label();
             ((System.ComponentModel.ISupportInitialize)nudGoalStrak).BeginInit();
             SuspendLayout();
             // 
@@ -208,17 +208,17 @@
             datePicker.TabIndex = 78;
             datePicker.ValueTextColor = Color.FromArgb(48, 52, 55);
             // 
-            // label3
+            // lblDate
             // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label3.AutoSize = true;
-            label3.Font = new Font("Sitka Display", 12F);
-            label3.ForeColor = Color.FromArgb(101, 92, 86);
-            label3.Location = new Point(457, 135);
-            label3.Name = "label3";
-            label3.Size = new Size(49, 29);
-            label3.TabIndex = 79;
-            label3.Text = "Data";
+            lblDate.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblDate.AutoSize = true;
+            lblDate.Font = new Font("Sitka Display", 12F);
+            lblDate.ForeColor = Color.FromArgb(101, 92, 86);
+            lblDate.Location = new Point(457, 135);
+            lblDate.Name = "lblDate";
+            lblDate.Size = new Size(49, 29);
+            lblDate.TabIndex = 79;
+            lblDate.Text = "Data";
             // 
             // HabitRegister
             // 
@@ -226,7 +226,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(229, 243, 229);
             ClientSize = new Size(800, 571);
-            Controls.Add(label3);
+            Controls.Add(lblDate);
             Controls.Add(datePicker);
             Controls.Add(lblColor);
             Controls.Add(txtColor);
@@ -251,7 +251,7 @@
             Controls.SetChildIndex(txtColor, 0);
             Controls.SetChildIndex(lblColor, 0);
             Controls.SetChildIndex(datePicker, 0);
-            Controls.SetChildIndex(label3, 0);
+            Controls.SetChildIndex(lblDate, 0);
             ((System.ComponentModel.ISupportInitialize)nudGoalStrak).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -270,6 +270,6 @@
         private TextBox txtDescription;
         private Label lblTitle_RegisterUser;
         private ReaLTaiizor.Controls.HopeDatePicker datePicker;
-        private Label label3;
+        private Label lblDate;
     }
 }

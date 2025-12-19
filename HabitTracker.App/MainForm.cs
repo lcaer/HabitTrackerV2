@@ -16,7 +16,7 @@ namespace HabitTracker.App
 
             InitializeComponent();
             SetMdiBackColor();
-            ExibeForm<Login>();
+            ShowForm<Login>();
         }
 
         public void Update_lblUser(string username)
@@ -38,10 +38,10 @@ namespace HabitTracker.App
 
         private void btnRegHabit_Click(object sender, EventArgs e)
         {
-            ExibeForm<HabitRegister>();
+            ShowForm<HabitRegister>();
         }
 
-        private void ExibeForm<TForm>() where TForm : Form
+        private void ShowForm<TForm>() where TForm : Form
         {
             var cad = ConfigureDI.ServicesProvider!.GetService<TForm>();
             if (cad != null && !cad.IsDisposed)

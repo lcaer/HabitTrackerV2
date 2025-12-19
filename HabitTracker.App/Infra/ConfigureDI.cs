@@ -22,9 +22,10 @@ namespace HabitTracker.App.Infra
         public static void ConfigureServices()
         {
             Services = new ServiceCollection();
-            #region Banco de dados
+            #region database
             var strCon = File.ReadAllText("C:/Users/Marinr/Downloads/IFSP/POEV/ProjetoFinal/" +
-                "HabitTracker/HabitTracker.App/Config/ConfigBanco.txt");
+                                        "HabitTracker/HabitTracker.App/Config/ConfigBanco.txt");
+
             Services.AddDbContext<MySqlContext>(options =>
             {
                 options.LogTo(Console.WriteLine)
@@ -37,20 +38,19 @@ namespace HabitTracker.App.Infra
             });
             #endregion
 
-            #region Repositórios
+            #region Repositories
             Services.AddScoped<IBaseRepository<User>, BaseRepository<User>>();
             Services.AddScoped<IBaseRepository<Habit>, BaseRepository<Habit>>();
             Services.AddScoped<IBaseRepository<Schedule>, BaseRepository<Schedule>>();
             #endregion
 
-            #region Serviços
+            #region Services
             Services.AddScoped<IBaseService<User>, BaseService<User>>();
             Services.AddScoped<IBaseService<Habit>, BaseService<Habit>>();
             Services.AddScoped<IBaseService<Schedule>, BaseService<Schedule>>();
             #endregion
 
-            #region Formulários
-            // Formulários
+            #region Forms
             Services.AddTransient<Login, Login>();
             Services.AddTransient<UserRegister, UserRegister>();
             Services.AddTransient<HabitRegister, HabitRegister>();
@@ -58,7 +58,6 @@ namespace HabitTracker.App.Infra
             #endregion
 
             #region Mappings
-            // Mappings
             Services.AddSingleton(new MapperConfiguration(config =>
             {
                 config.CreateMap<User, UserModel>();

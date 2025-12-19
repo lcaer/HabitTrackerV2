@@ -79,7 +79,6 @@ namespace HabitTracker.App.Bases
                 Button btn = new Button();
                 btn.Width = buttonSize;
                 btn.Height = buttonSize;
-                btn.Tag = i;
                 btn.Text = "";
                 btn.Enabled = false;
                 btn.BackColor = Color.FromArgb(208, 221, 208);
