@@ -9,6 +9,8 @@ namespace HabitTracker.Service.Validators
         {
             RuleFor(c => c.Date)
                 .NotEmpty();
+            RuleFor(c => c.InitialDate)
+                .NotEmpty();
             /*RuleFor(c => c.NumRep)
                 .NotEmpty().GreaterThan(0);
             RuleFor(c => c.TypeRep)

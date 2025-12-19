@@ -15,6 +15,9 @@ namespace HabitTracker.Repository.Mapping
             builder.Property(prop => prop.Date)
                 .IsRequired();
 
+            builder.Property(prop => prop.InitialDate)
+                .IsRequired();
+
             /*builder.Property(prop => prop.NumRep)
                 .IsRequired();
 

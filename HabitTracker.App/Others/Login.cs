@@ -80,8 +80,6 @@ namespace HabitTracker.App.Others
             var users = _userService.Get<User>().ToList();
             if (!users.Any())
             {
-                MessageBox.Show("Não tem nenhum usuário, redirecionando para Registro!", 
-                                @"HabitTracker", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
                 ShowForm<UserRegister>();
             }

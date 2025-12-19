@@ -194,11 +194,14 @@ namespace HabitTracker.App.Bases
             var schedule = _scheduleService.Get<Schedule>().Where(s => s.Id == _habit.Schedule.Id).First();
             DateTime newDate = schedule.Date.Value.AddDays(1);
 
-            schedule.Status = statusArray;
-            schedule.Date = newDate;
-            _scheduleService.Update<Schedule, Schedule, ScheduleValidator>(schedule);
-            _scheduleService.Update<Schedule, Schedule, ScheduleValidator>(schedule);
-            lblDate.Text = newDate.ToShortDateString();
+            if (schedule.InitialDate.Value.AddDays(_habit.GoalStreak.Value) >= newDate)
+            {
+                schedule.Status = statusArray;
+                schedule.Date = newDate;
+                _scheduleService.Update<Schedule, Schedule, ScheduleValidator>(schedule);
+                _scheduleService.Update<Schedule, Schedule, ScheduleValidator>(schedule);
+                lblDate.Text = newDate.ToShortDateString();
+            }
         }
     }
 }
