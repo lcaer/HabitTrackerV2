@@ -1,6 +1,7 @@
 ﻿using HabitTracker.App.Infra;
 using HabitTracker.Domain.Bases;
 using HabitTracker.Domain.Entities;
+using HabitTracker.Service.Validators;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualBasic.Devices;
 using System.Windows.Forms;
@@ -63,6 +64,7 @@ namespace HabitTracker.App.Bases
 
             UpdateContent(habit.Name, habit.Description, schedule.Date.Value.ToShortDateString());
             PopulateHabitButtons(habit.GoalStreak.Value);
+            FillButtons();
         }
 
         private void PopulateHabitButtons(int streakGoal)
@@ -130,38 +132,89 @@ namespace HabitTracker.App.Bases
             var habits = _habitService.Get<Habit>().Where(h => h.User.Id == user.Id).ToList();
             return habits;
         }
-        private void btnConfStreak_Click(object sender, EventArgs e)
+
+        private List<bool> GetStatus()
         {
-            //int count = 0;
-            bool wasChecked = chStreak.Checked;
-            List<Habit>? habits = GetHabits();
+            List<bool> status = [];
+            var habits = GetHabits();
 
             foreach (Habit habit in habits)
             {
                 var schedule = _scheduleService.Get<Schedule>().Where(s => s.Id == habit.Schedule.Id).First();
-                DateTime newDate = schedule.Date.Value.AddDays(1);
-                lblDate.Text = newDate.ToShortDateString();
+                status = schedule.Status;
             }
+
+            return status;
+        }
+
+        private void FillButtons()
+        {
+            int i = 0;
+            List<bool> statusArray = GetStatus();
 
             foreach (Control control in flpHabitStreak.Controls)
             {
                 if (control is Button btn)
+                {
+                    if (i >= 0 && i < statusArray.Count())
+                    {
+                        if (statusArray[i] == false)
+                        {
+                            btn.BackColor = Color.FromArgb(162, 85, 75);
+                        }
+                        else
+                        {
+                            btn.BackColor = Color.FromArgb(155, 184, 153);
+                        }
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    i++;
+                }
+            }
+        }
+        private void btnConfStreak_Click(object sender, EventArgs e)
+        {
+            int i = 0;
+            bool wasChecked = chStreak.Checked;
+            List<Habit>? habits = GetHabits();
+            List<bool> statusArray = GetStatus();
+
+            foreach (Control control in flpHabitStreak.Controls)
+            {
+                if(control is Button btn)
                 {
                     if (btn.BackColor == Color.FromArgb(208, 221, 208))
                     {
                         if (wasChecked == false)
                         {
                             btn.BackColor = Color.FromArgb(162, 85, 75);
+                            statusArray.Add(false);
                             break;
                         }
                         else
                         {
                             btn.BackColor = Color.FromArgb(155, 184, 153);
+                            statusArray.Add(true);
                             break;
                         }
                     }
-
                 }
+            }
+
+            foreach (Habit habit in habits)
+            {
+                var schedule = _scheduleService.Get<Schedule>().Where(s => s.Id == habit.Schedule.Id).First();
+                DateTime newDate = schedule.Date.Value.AddDays(1);
+
+                //habit.Streak = doneStreak;
+                schedule.Status = statusArray;
+                schedule.Date = newDate;
+                _scheduleService.Update<Schedule, Schedule, ScheduleValidator>(schedule);
+                _scheduleService.Update<Schedule, Schedule, ScheduleValidator>(schedule);
+                lblDate.Text = newDate.ToShortDateString();
             }
         }
     }

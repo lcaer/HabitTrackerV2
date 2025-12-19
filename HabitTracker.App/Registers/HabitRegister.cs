@@ -30,6 +30,7 @@ namespace HabitTracker.App.Registers
             habit.Color = txtColor.Text;
             habit.Schedule = schedule;
             habit.Schedule.Date = datePicker.Date.AddHours(12);
+            habit.Schedule.Status = [];
             habit.Schedule.Reminder = habit.Schedule.Date.Value.AddHours(-1);
         }
 

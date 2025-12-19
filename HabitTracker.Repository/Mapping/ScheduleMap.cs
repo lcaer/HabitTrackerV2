@@ -21,6 +21,9 @@ namespace HabitTracker.Repository.Mapping
            /builder.Property(prop => prop.TypeRep)
                 .IsRequired();*/
 
+            builder.Property(prop => prop.Status)
+                .IsRequired();
+
             builder.Property(prop => prop.Reminder)
                 .IsRequired();
         }

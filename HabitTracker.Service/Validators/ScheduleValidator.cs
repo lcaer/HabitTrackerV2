@@ -13,6 +13,8 @@ namespace HabitTracker.Service.Validators
                 .NotEmpty().GreaterThan(0);
             RuleFor(c => c.TypeRep)
                 .NotEmpty().InclusiveBetween(1, 3);*/
+            RuleFor(c => c.Status)
+               .NotEmpty();
             RuleFor(c => c.Reminder)
                .NotEmpty();
 
