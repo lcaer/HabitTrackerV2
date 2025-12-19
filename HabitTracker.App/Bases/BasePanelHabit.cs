@@ -18,7 +18,6 @@ namespace HabitTracker.App.Bases
             _scheduleService = scheduleService;
 
             InitializeComponent();
-
             MdiParent = MainForm.ActiveForm;
         }
 
@@ -60,11 +59,12 @@ namespace HabitTracker.App.Bases
             int panelHeight = PanelSize(habit.GoalStreak.Value, 12, 360);
 
             this.Size = new Size(781, panelHeight);
-            this.Text = "Habit: " + habit.Name;
 
             UpdateContent(habit.Name, habit.Description, schedule.Date.Value.ToShortDateString());
             PopulateHabitButtons(habit.GoalStreak.Value);
-            FillButtons();
+
+            List<bool> statusArray = GetStatus();
+            FillButtons(true, statusArray, 2);
         }
 
         private void PopulateHabitButtons(int streakGoal)
@@ -79,7 +79,6 @@ namespace HabitTracker.App.Bases
                 Button btn = new Button();
                 btn.Width = buttonSize;
                 btn.Height = buttonSize;
-                btn.Text = "";
                 btn.Enabled = false;
                 btn.BackColor = Color.FromArgb(208, 221, 208);
                 btn.ForeColor = Color.FromArgb(229, 243, 229);
@@ -146,34 +145,54 @@ namespace HabitTracker.App.Bases
             return status;
         }
 
-        private void FillButtons()
+        private void FillButtons(bool wasChecked, List<bool> statusArray, int op)
         {
             int i = 0;
-            List<bool> statusArray = GetStatus();
-
             foreach (Control control in flpHabitStreak.Controls)
             {
                 if (control is Button btn)
                 {
-                    if (i >= 0 && i < statusArray.Count())
+                    if(op == 1)
                     {
-                        if (statusArray[i] == false)
+                        if (btn.BackColor == Color.FromArgb(208, 221, 208))
                         {
-                            btn.BackColor = Color.FromArgb(162, 85, 75);
+                            if (wasChecked == false)
+                            {
+                                btn.BackColor = Color.FromArgb(162, 85, 75);
+                                statusArray.Add(false);
+                                break;
+                            }
+                            else
+                            {
+                                btn.BackColor = Color.FromArgb(155, 184, 153);
+                                statusArray.Add(true);
+                                break;
+                            }
+                        }
+                    }
+                    if(op == 2)
+                    {
+                        if (i >= 0 && i < statusArray.Count())
+                        {
+                            if (statusArray[i] == false)
+                            {
+                                btn.BackColor = Color.FromArgb(162, 85, 75);
+                            }
+                            else
+                            {
+                                btn.BackColor = Color.FromArgb(155, 184, 153);
+                            }
                         }
                         else
                         {
-                            btn.BackColor = Color.FromArgb(155, 184, 153);
+                            break;
                         }
+                        i++;
                     }
-                    else
-                    {
-                        break;
-                    }
-                    i++;
                 }
             }
         }
+
         private void btnConfStreak_Click(object sender, EventArgs e)
         {
             int i = 0;
@@ -181,27 +200,7 @@ namespace HabitTracker.App.Bases
             List<Habit>? habits = GetHabits();
             List<bool> statusArray = GetStatus();
 
-            foreach (Control control in flpHabitStreak.Controls)
-            {
-                if(control is Button btn)
-                {
-                    if (btn.BackColor == Color.FromArgb(208, 221, 208))
-                    {
-                        if (wasChecked == false)
-                        {
-                            btn.BackColor = Color.FromArgb(162, 85, 75);
-                            statusArray.Add(false);
-                            break;
-                        }
-                        else
-                        {
-                            btn.BackColor = Color.FromArgb(155, 184, 153);
-                            statusArray.Add(true);
-                            break;
-                        }
-                    }
-                }
-            }
+            FillButtons(wasChecked, statusArray, 1);
 
             foreach (Habit habit in habits)
             {

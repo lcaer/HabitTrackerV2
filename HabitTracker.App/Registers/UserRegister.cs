@@ -50,15 +50,20 @@ namespace HabitTracker.App.Registers
             }
         }
 
-        private void lklblLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ShowForm<TForm>() where TForm : Form
         {
-            this.Close();
-            var cad = ConfigureDI.ServicesProvider!.GetService<Login>();
+            var cad = ConfigureDI.ServicesProvider!.GetService<TForm>();
             if (cad != null && !cad.IsDisposed)
             {
                 cad.MdiParent = MainForm.ActiveForm;
                 cad.Show();
             }
+        }
+
+        private void lklblLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Close();
+            ShowForm<Login>();
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -67,12 +72,7 @@ namespace HabitTracker.App.Registers
             if (wasSaved == 1)
             {
                 this.Close();
-                var cad = ConfigureDI.ServicesProvider!.GetService<Login>();
-                if (cad != null && !cad.IsDisposed)
-                {
-                    cad.MdiParent = MainForm.ActiveForm;
-                    cad.Show();
-                }
+                ShowForm<Login>();
             }
         }
 

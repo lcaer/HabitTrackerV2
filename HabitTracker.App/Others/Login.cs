@@ -1,6 +1,5 @@
 ﻿using HabitTracker.App.Bases;
 using HabitTracker.App.Infra;
-using HabitTracker.App.Models;
 using HabitTracker.App.Registers;
 using HabitTracker.Domain.Bases;
 using HabitTracker.Domain.Entities;
@@ -75,30 +74,19 @@ namespace HabitTracker.App.Others
                 return null;
             return user.Password != password ? null : user;
         }
+        
         private void IsUserRegistered()
         {
             var users = _userService.Get<User>().ToList();
             if (!users.Any())
             {
-                var user = new User
-                {
-                    Login = "admin",
-                    Password = "Admin123!",
-                    Name = "Admnistrador",
-                    Active = true,
-                    RegisterDate = DateTime.Now,
-                    Email = "admin@gmail.com"
-                };
-                _userService.Add<User, User, UserValidator>(user);
+                MessageBox.Show("Não tem nenhum usuário, redirecionando para Registro!", 
+                                @"HabitTracker", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                ShowForm<UserRegister>();
             }
         }
-
-        private void lklblRegisterUser_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Close();
-            ShowForm<UserRegister>();
-        }
-        
+       
         private void ShowForm<TForm>() where TForm : Form
         {
             var cad = ConfigureDI.ServicesProvider!.GetService<TForm>();
@@ -107,6 +95,12 @@ namespace HabitTracker.App.Others
                 cad.MdiParent = MainForm.ActiveForm;
                 cad.Show();
             }
+        }
+
+        private void lklblRegisterUser_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Close();
+            ShowForm<UserRegister>();
         }
         
         private void chbPassword_CheckedChanged(object sender, EventArgs e)

@@ -13,7 +13,6 @@ namespace HabitTracker.App
 
         public MainForm()
         {
-
             InitializeComponent();
             SetMdiBackColor();
             ShowForm<Login>();

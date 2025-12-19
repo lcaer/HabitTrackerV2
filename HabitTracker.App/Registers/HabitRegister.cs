@@ -9,7 +9,6 @@ namespace HabitTracker.App.Registers
     {
         private IBaseService<Habit> _habitService;
         private IBaseService<Schedule> _scheduleService;
-        //private IBaseService<User> _userService;
         int wasSaved = 0;
         public HabitRegister(
             IBaseService<Habit> habitService, 
