@@ -184,6 +184,7 @@
             Name = "BasePanelHabit";
             StartPosition = FormStartPosition.Manual;
             Text = "BasePanelHabit";
+            DoubleClick += BasePanelHabit_DoubleClick;
             HabitPanel.ResumeLayout(false);
             StreakPanel.ResumeLayout(false);
             StreakPanel.PerformLayout();

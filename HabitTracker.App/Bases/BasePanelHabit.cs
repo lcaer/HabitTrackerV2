@@ -20,6 +20,11 @@ namespace HabitTracker.App.Bases
 
             InitializeComponent();
             MdiParent = MainForm.ActiveForm;
+
+            if (this.MdiParent is MainForm main)
+            {
+                main.btnRegHabit.Visible = true;
+            }
         }
 
         public static void GenerateWindows(IBaseService<Habit> habitService, IBaseService<Schedule> scheduleService)
@@ -36,7 +41,7 @@ namespace HabitTracker.App.Bases
 
                 habitWindow.ApplyHabitData(habit);
                 habitWindow.StartPosition = FormStartPosition.Manual;
-                if(isFirst == true)
+                if (isFirst == true)
                 {
                     habitWindow.Location = new Point(50, 10);
                     isFirst = false;
@@ -47,7 +52,7 @@ namespace HabitTracker.App.Bases
                     habitWindow.Location = new Point(50, offsetY);
                     offsetY += (habitWindow.Size.Height + 10);
                 }
-                
+
                 habitWindow.Show();
             }
         }
@@ -103,9 +108,9 @@ namespace HabitTracker.App.Bases
                 size = 100;
             }
 
-            if (goalStreak > 30 && goalStreak <= 360) 
+            if (goalStreak > 30 && goalStreak <= 360)
             {
-                if (obj >= goalStreak && (obj-goalStreak)<=29)
+                if (obj >= goalStreak && (obj - goalStreak) <= 29)
                 {
                     t = 1;
                     size = 72 + (28 * c);
@@ -143,7 +148,7 @@ namespace HabitTracker.App.Bases
             {
                 if (control is Button btn)
                 {
-                    if(op == 1)
+                    if (op == 1)
                     {
                         if (btn.BackColor == Color.FromArgb(208, 221, 208))
                         {
@@ -161,7 +166,7 @@ namespace HabitTracker.App.Bases
                             }
                         }
                     }
-                    if(op == 2)
+                    if (op == 2)
                     {
                         if (i >= 0 && i < statusArray.Count())
                         {
@@ -188,7 +193,7 @@ namespace HabitTracker.App.Bases
         {
             bool wasChecked = chStreak.Checked;
             List<bool> statusArray = GetStatus();
-            
+
             FillButtons(wasChecked, statusArray, 1);
 
             var schedule = _scheduleService.Get<Schedule>().Where(s => s.Id == _habit.Schedule.Id).First();
@@ -202,6 +207,10 @@ namespace HabitTracker.App.Bases
                 _scheduleService.Update<Schedule, Schedule, ScheduleValidator>(schedule);
                 lblDate.Text = newDate.ToShortDateString();
             }
+        }
+        private void BasePanelHabit_DoubleClick(object sender, EventArgs e)
+        {
+
         }
     }
 }

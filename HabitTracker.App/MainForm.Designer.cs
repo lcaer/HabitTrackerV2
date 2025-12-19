@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             lblUser = new Label();
             panelUser = new Panel();
+            btnConfig = new Button();
             btnRegHabit = new Button();
             panelUser.SuspendLayout();
             SuspendLayout();
@@ -48,6 +49,7 @@
             // panelUser
             // 
             panelUser.BackColor = Color.FromArgb(155, 184, 153);
+            panelUser.Controls.Add(btnConfig);
             panelUser.Controls.Add(lblUser);
             panelUser.Dock = DockStyle.Bottom;
             panelUser.Location = new Point(0, 415);
@@ -55,18 +57,32 @@
             panelUser.Size = new Size(800, 35);
             panelUser.TabIndex = 3;
             // 
+            // btnConfig
+            // 
+            btnConfig.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnConfig.FlatAppearance.BorderSize = 0;
+            btnConfig.FlatStyle = FlatStyle.Flat;
+            btnConfig.Image = (Image)resources.GetObject("btnConfig.Image");
+            btnConfig.ImageAlign = ContentAlignment.MiddleRight;
+            btnConfig.Location = new Point(765, 1);
+            btnConfig.Name = "btnConfig";
+            btnConfig.Size = new Size(32, 34);
+            btnConfig.TabIndex = 12;
+            btnConfig.UseVisualStyleBackColor = true;
+            btnConfig.Visible = false;
+            btnConfig.Click += bntConfig_Click;
+            // 
             // btnRegHabit
             // 
-            btnRegHabit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnRegHabit.FlatAppearance.BorderSize = 0;
             btnRegHabit.FlatStyle = FlatStyle.Flat;
             btnRegHabit.Image = (Image)resources.GetObject("btnRegHabit.Image");
-            btnRegHabit.ImageAlign = ContentAlignment.MiddleRight;
-            btnRegHabit.Location = new Point(756, 72);
+            btnRegHabit.Location = new Point(841, 72);
             btnRegHabit.Name = "btnRegHabit";
-            btnRegHabit.Size = new Size(32, 34);
+            btnRegHabit.Size = new Size(50, 50);
             btnRegHabit.TabIndex = 10;
             btnRegHabit.UseVisualStyleBackColor = true;
+            btnRegHabit.Visible = false;
             btnRegHabit.Click += btnRegHabit_Click;
             // 
             // MainForm
@@ -93,6 +109,7 @@
 
         public Label lblUser;
         public Panel panelUser;
-        private Button btnRegHabit;
+        public Button btnConfig;
+        public Button btnRegHabit;
     }
 }

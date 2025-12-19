@@ -40,6 +40,11 @@ namespace HabitTracker.App
             ShowForm<HabitRegister>();
         }
 
+        private void bntConfig_Click(object sender, EventArgs e)
+        {
+            ShowForm<UserRegister>();
+        }
+
         private void ShowForm<TForm>() where TForm : Form
         {
             var cad = ConfigureDI.ServicesProvider!.GetService<TForm>();

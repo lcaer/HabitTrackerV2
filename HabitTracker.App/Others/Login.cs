@@ -44,24 +44,25 @@ namespace HabitTracker.App.Others
                 user = _userService.Update<User, User, UserValidator>(user);
                 MainForm.User = user;
                 DialogResult = DialogResult.OK;
-                
+
 
                 if (this.MdiParent is MainForm main)
                 {
                     main.Update_lblUser(user.Login);
-                }
 
-                var habits = _habitService.Get<Habit>().Where(h => h.User.Id == user.Id).ToList();
+                    var habits = _habitService.Get<Habit>().Where(h => h.User.Id == user.Id).ToList();
 
-                Close();
-                
-                if (habits.Any())
-                {
-                    BasePanelHabit.GenerateWindows(_habitService, _scheduleService);
-                }
-                else
-                {
-                    ShowForm<HabitRegister>();
+                    Close();
+
+                    if (habits.Any())
+                    {
+                        BasePanelHabit.GenerateWindows(_habitService, _scheduleService);
+                        main.btnConfig.Visible = true;
+                    }
+                    else
+                    {
+                        ShowForm<HabitRegister>();
+                    }
                 }
             }
         }
