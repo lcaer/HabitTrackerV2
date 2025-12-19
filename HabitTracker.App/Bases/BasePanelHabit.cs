@@ -12,6 +12,7 @@ namespace HabitTracker.App.Bases
     {
         private IBaseService<Habit> _habitService;
         private IBaseService<Schedule> _scheduleService;
+        private Habit _habit;
         public BasePanelHabit(IBaseService<Habit> habitService, IBaseService<Schedule> scheduleService)
         {
             _habitService = habitService;
@@ -53,6 +54,7 @@ namespace HabitTracker.App.Bases
 
         private void ApplyHabitData(Habit habit)
         {
+            _habit = habit;
             var schedule = _scheduleService.Get<Schedule>().FirstOrDefault(s => s.Id == habit.Schedule.Id);
             if (schedule == null) return;
 
@@ -124,23 +126,12 @@ namespace HabitTracker.App.Bases
             lblDate.Text = data;
         }
 
-        private List<Habit> GetHabits()
-        {
-            User user = MainForm.User;
-            var habits = _habitService.Get<Habit>().Where(h => h.User.Id == user.Id).ToList();
-            return habits;
-        }
-
         private List<bool> GetStatus()
         {
             List<bool> status = [];
-            var habits = GetHabits();
 
-            foreach (Habit habit in habits)
-            {
-                var schedule = _scheduleService.Get<Schedule>().Where(s => s.Id == habit.Schedule.Id).First();
-                status = schedule.Status;
-            }
+            var schedule = _scheduleService.Get<Schedule>().FirstOrDefault(s => s.Id == _habit.Schedule.Id);
+            status = schedule.Status;
 
             return status;
         }
@@ -195,25 +186,19 @@ namespace HabitTracker.App.Bases
 
         private void btnConfStreak_Click(object sender, EventArgs e)
         {
-            int i = 0;
             bool wasChecked = chStreak.Checked;
-            List<Habit>? habits = GetHabits();
             List<bool> statusArray = GetStatus();
-
+            
             FillButtons(wasChecked, statusArray, 1);
 
-            foreach (Habit habit in habits)
-            {
-                var schedule = _scheduleService.Get<Schedule>().Where(s => s.Id == habit.Schedule.Id).First();
-                DateTime newDate = schedule.Date.Value.AddDays(1);
+            var schedule = _scheduleService.Get<Schedule>().Where(s => s.Id == _habit.Schedule.Id).First();
+            DateTime newDate = schedule.Date.Value.AddDays(1);
 
-                //habit.Streak = doneStreak;
-                schedule.Status = statusArray;
-                schedule.Date = newDate;
-                _scheduleService.Update<Schedule, Schedule, ScheduleValidator>(schedule);
-                _scheduleService.Update<Schedule, Schedule, ScheduleValidator>(schedule);
-                lblDate.Text = newDate.ToShortDateString();
-            }
+            schedule.Status = statusArray;
+            schedule.Date = newDate;
+            _scheduleService.Update<Schedule, Schedule, ScheduleValidator>(schedule);
+            _scheduleService.Update<Schedule, Schedule, ScheduleValidator>(schedule);
+            lblDate.Text = newDate.ToShortDateString();
         }
     }
 }
