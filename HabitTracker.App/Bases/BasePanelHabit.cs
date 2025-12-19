@@ -195,7 +195,7 @@ namespace HabitTracker.App.Bases
             }
         }
 
-        protected void Delete()
+        public void Delete()
         {
             try
             {
@@ -203,7 +203,6 @@ namespace HabitTracker.App.Bases
                     "HabitTracker", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (res == DialogResult.Yes)
                 {
-                    //_scheduleService.Delete(sch.Id);
                     _habitService.Delete(_habit.Id);
                 }
             }
